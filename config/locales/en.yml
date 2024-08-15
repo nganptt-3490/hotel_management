@@ -11,3 +11,11 @@ en:
     login: "Login"
   footer:
     mess: "Footer for AN hotel"
+  mess:
+    not_found_room: "Not found room type!"
+  rooms:
+    title: "All Room Types"
+    currencies: "$"
+    area: "Area:"
+    guest: "Max Guests:"
+    units: "sqd"

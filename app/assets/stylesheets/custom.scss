@@ -1,3 +1,10 @@
+@import "font-awesome";
+@import "./colors.scss";
+
+* {
+  color: $text-color;
+}
+
 .home-background {
   background-image: url("background.jpg");
   background-size: cover;

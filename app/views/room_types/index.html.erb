@@ -1,0 +1,8 @@
+<% provide :title, t("rooms.title") %>
+<h1 class="text-3xl font-bold mb-6"><%= t "rooms.title" %></h1>
+<div class="flex flex-col">
+  <ul class="roomtypes grid grid-cols-2 gap-4 w-2/3 ml-auto mr-16 h-full">
+    <%= render @room_types %>
+  </ul>
+  <%== pagy_nav(@pagy) %>
+</div>
