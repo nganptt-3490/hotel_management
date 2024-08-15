@@ -1,0 +1,32 @@
+<header class="mb-auto flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-4">
+  <nav class="w-full px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <%= link_to "#", class: "flex items-center space-x-2 text-xl font-semibold text-white focus:outline-none focus:opacity-80", aria: { label: "Brand" } do %>
+        <%= image_tag "logo.jpg", alt: "Brand Logo", class: "h-16 w-auto" %>
+        <p><%= t "home.logo" %></p>
+      <% end %>
+    </div>
+    <div id="hs-navbar-cover-page" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-cover-page-collapse">
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+        <%= link_to "#", class: "font-medium text-white focus:outline-none", aria: { current: "page" } do %>
+          <%= t "header.home" %>
+        <% end %>
+        <%= link_to "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
+          <%= t "header.room" %>
+        <% end %>
+        <%= link_to "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
+          <%= t "header.service" %>
+        <% end %>
+        <%= link_to "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
+          <%= t "header.login" %>
+        <% end %>
+        <%= link_to({ locale: "en" }, class: "text-white") do %>
+          <%= image_tag "english.png", alt: "English", class: "h-6 w-auto" %>
+        <% end %>
+        <%= link_to({ locale: "vi" }, class: "text-white") do %>
+          <%= image_tag "vietnam.png", alt: "Vietnamese", class: "h-6 w-auto" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>

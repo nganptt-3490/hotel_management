@@ -1,0 +1,13 @@
+vi:
+  namepage: "NHÀ AN"
+  home:
+    title: "Trang chủ"
+    mess: "Chào mừng"
+    logo: "Nhà"
+  header:
+    home: "Trang chủ"
+    room: "Phòng"
+    service: "Dịch vụ"
+    login: "Đăng nhập"
+  footer:
+    mess: "Liên hệ khách sạn AN"
