@@ -1,5 +1,4 @@
 # These are all the cops that are disabled in the default configuration.
-
 Style/FrozenStringLiteralComment:
   Description: >-
     Add the frozen_string_literal comment to the top of files
