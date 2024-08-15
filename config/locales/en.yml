@@ -1,2 +1,13 @@
 en:
-  hello: "Hello world"
+  namepage: "AN HOTEL"
+  home:
+    title: "Home"
+    mess: "Welcome"
+    logo: "Hotel"
+  header:
+    home: "Home"
+    room: "Room"
+    service: "Service"
+    login: "Login"
+  footer:
+    mess: "Footer for AN hotel"
