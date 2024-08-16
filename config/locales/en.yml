@@ -49,3 +49,9 @@ en:
   search:
     submit: "Search"
     date_valid: "You must fill start date and end date before submit"
+    start_date: "Start Date"
+    end_date: "End Date"
+    min_price: "Min Price"
+    max_price: "Max Price"
+    enter_min_price: "Enter min price"
+    enter_max_price: "Enter max price"
