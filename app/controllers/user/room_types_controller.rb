@@ -1,4 +1,4 @@
-class RoomTypesController < ApplicationController
+class User::RoomTypesController < User::BaseController
   def index
     @pagy, @room_types = pagy RoomType.ordered_by_name,
                               limit: Settings.pagy.items

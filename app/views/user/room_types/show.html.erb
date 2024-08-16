@@ -8,6 +8,7 @@
       <%= @room_type.price_weekday %> - <%= @room_type.price_weekend %> <%= t "rooms.currencies" %>
     </p>
     <p class="text-sm mb-2"><%= t "rooms.area" %> <%= @room_type.area %> <%= t "rooms.units" %></p>
-    <p class="text-sm"><%= t "rooms.guest" %> <%= @room_type.number_of_guest_max %></p>
+    <p class="text-sm mb-4"><%= t "rooms.guest" %> <%= @room_type.number_of_guest_max %></p>
+    <%= link_to t("rooms.booking"), root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
 </div>
