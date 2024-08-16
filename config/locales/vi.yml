@@ -47,3 +47,6 @@ vi:
   list_request: "Danh sách yêu cầu"
   no_requests_found: "Không tìm thấy yêu cầu"
   record_not_found: "Không có dữ liệu"
+  search:
+    submit: "Tìm phòng"
+    date_valid: "Ngày bắt đầu và kết thúc phải có định dạng hợp lệ."

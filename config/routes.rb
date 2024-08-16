@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users, only: %i(cancle_request)
       get "/profile", to: "users#show"
       patch "requests/:id/cancel", to: "users#cancel", as: "cancel_request"
+      get "search", to: "room_types#search"
     end
 
     namespace :admin do
