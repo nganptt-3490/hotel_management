@@ -11,3 +11,11 @@ vi:
     login: "Đăng nhập"
   footer:
     mess: "Liên hệ khách sạn AN"
+  mess:
+    not_found_room: "Không tìm thấy loại phòng tương ứng!"
+  rooms:
+    title: "Tất cả các loại phòng"
+    currencies: "VND"
+    area: "Diện tích:"
+    guest: "Số khách tối đa:"
+    units: "m2"

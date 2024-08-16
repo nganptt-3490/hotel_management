@@ -4,4 +4,6 @@ class RoomType < ApplicationRecord
   has_many :requests, dependent: :destroy
 
   has_many :utilities, through: :utilities_in_room_types, source: :utility
+
+  scope :ordered_by_name, ->{order(name: :asc)}
 end

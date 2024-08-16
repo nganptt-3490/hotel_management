@@ -8,19 +8,66 @@
                   quantity: quantity,
                   cost: cost)
 end
-
 RoomType.create!(name: "Single Room",
                 price_weekday: 500000,
                 price_weekend: 600000,
                 area: 15,
                 number_of_guest_max: 1)
-
 RoomType.create!(name: "Double Room",
                 price_weekday: 600000,
                 price_weekend: 700000,
                 area: 20,
-                number_of_guest_max: 3)       
-
+                number_of_guest_max: 3)
+RoomType.create!(name: "Triple Room",
+                price_weekday: 800000,
+                price_weekend: 900000,
+                area: 25,
+                number_of_guest_max: 4)
+RoomType.create!(name: "Quara Room",
+                price_weekday: 900000,
+                price_weekend: 1000000,
+                area: 30,
+                number_of_guest_max: 6)
+RoomType.create!(name: "Penta Room",
+                price_weekday: 1000000,
+                price_weekend: 1100000,
+                area: 35,
+                number_of_guest_max: 8)
+RoomType.create!(name: "Hexa Room",
+                price_weekday: 1300000,
+                price_weekend: 1400000,
+                area: 40,
+                number_of_guest_max: 10)
+RoomType.create!(name: "Single Room",
+                price_weekday: 500000,
+                price_weekend: 600000,
+                area: 15,
+                number_of_guest_max: 1)
+RoomType.create!(name: "Double Room",
+                price_weekday: 600000,
+                price_weekend: 700000,
+                area: 20,
+                number_of_guest_max: 3)
+RoomType.create!(name: "Triple Room",
+                price_weekday: 800000,
+                price_weekend: 900000,
+                area: 25,
+                number_of_guest_max: 4)
+RoomType.create!(name: "Quara Room",
+                price_weekday: 900000,
+                price_weekend: 1000000,
+                area: 30,
+                number_of_guest_max: 6)
+RoomType.create!(name: "Penta Room",
+                price_weekday: 1000000,
+                price_weekend: 1100000,
+                area: 35,
+                number_of_guest_max: 8)
+RoomType.create!(name: "Hexa Room",
+                price_weekday: 1300000,
+                price_weekend: 1400000,
+                area: 40,
+                number_of_guest_max: 10)
 15.times do |n|
   utility_id = n + 1
   quantity= Faker::Number.between(from: 1, to: 2)
@@ -32,7 +79,6 @@ RoomType.create!(name: "Double Room",
     description: description
   )
 end
-
 10.times do |n|
   utility_id = n + 10
   quantity = Faker::Number.between(from: 1, to: 2)
@@ -44,7 +90,6 @@ end
     description: description
   )
 end
-
 20.times do |n|
   room_type_id = Faker::Number.between(from: 1, to: 2)
   status = Faker::Number.between(from: 0, to: 1)

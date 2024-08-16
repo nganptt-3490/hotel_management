@@ -3,10 +3,13 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "3.2.2"
 gem "bootsnap", require: false
+gem "config"
 gem "faker"
+gem "font-awesome-sass", "~> 6.0.0"
 gem "importmap-rails"
 gem "jbuilder"
 gem "mysql2", "~> 0.5"
+gem "pagy"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.5"
 gem "rails-i18n"
