@@ -9,6 +9,10 @@ vi:
     room: "Phòng"
     service: "Dịch vụ"
     login: "Đăng nhập"
+    utility: "Dịch vụ, cơ sở vật chất"
+    fluctuation: "Biến động giá"
+    request: "Yêu cầu đặt phòng"
+    review: "Phản hồi"
   footer:
     mess: "Liên hệ khách sạn AN"
   mess:
@@ -19,3 +23,4 @@ vi:
     area: "Diện tích:"
     guest: "Số khách tối đa:"
     units: "m2"
+    booking: "Đặt phòng"
