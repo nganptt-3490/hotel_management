@@ -1,0 +1,33 @@
+<li class="bg-white shadow-lg rounded-lg p-6 flex flex-col space-y-4 hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+  <div class="flex items-center justify-between">
+    <div>
+      <p class="text-sm font-semibold text-gray-700">
+        <%= t "request.booking_time" %>: <%= request.start_date %> - <%= request.end_date %>
+      </p>
+      <p class="text-sm text-gray-700">
+        <%= t "request.room_type" %>: <%= request.room_type.name %>
+      </p>
+    </div>
+    <div class="text-sm font-semibold">
+      <% if request.accepted_at.present? %>
+        <span class="text-green-600"><%= t "request.status.succeed" %></span>
+      <% elsif request.rejected_at.present? %>
+        <span class="text-red-600"><%= t "request.status.rejected" %></span>
+      <% else %>
+        <span class="text-yellow-600"><%= t "request.status.pending" %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex items-center justify-between">
+    <%= link_to "#", class: "text-blue-600 hover:text-blue-800 text-sm flex items-center space-x-2" do %>
+      <span class="text-blue-600"><%= t "request.view_details" %></span>
+      <i class="fa fa-arrow-right text-blue-600 text-lg"></i>
+    <% end %>
+
+    <% if request.deleted_at.blank? && request.accepted_at.blank? && request.rejected_at.blank? %>
+      <%= link_to cancel_request_path(request), data: { turbo_method: :patch, turbo_confirm: t("request.confirm_cancel") }, class: "bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300 ml-4" do %>
+        <%= t "request.cancel" %>
+      <% end %>
+    <% end %>
+  </div>
+</li>

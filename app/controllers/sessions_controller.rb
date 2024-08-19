@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to root_path, status: :see_other
     else
-      flash.now[:danger] = t "invalid_email_password_combination"
+      flash.now[:danger] = t "mess.invalid_email_password_combination"
       render :new, status: :unprocessable_entity
     end
   end
