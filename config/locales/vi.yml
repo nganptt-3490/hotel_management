@@ -13,8 +13,11 @@ vi:
     fluctuation: "Biến động giá"
     request: "Yêu cầu đặt phòng"
     review: "Phản hồi"
+    profile: "Hồ sơ"
+    logout: "Đăng xuất"
   footer:
     mess: "Liên hệ khách sạn AN"
+    invalid_email_password_combination: "Email và mật khẩu không hợp lệ"
   mess:
     not_found_room: "Không tìm thấy loại phòng tương ứng!"
   rooms:
@@ -24,3 +27,6 @@ vi:
     guest: "Số khách tối đa:"
     units: "m2"
     booking: "Đặt phòng"
+  email_address: "Địa chỉ email"
+  password: "Mật khẩu"
+  are_you_sure?: "Bạn chắc chưa?"

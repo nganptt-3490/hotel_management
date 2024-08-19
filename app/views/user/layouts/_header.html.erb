@@ -8,17 +8,14 @@
     </div>
     <div id="hs-navbar-cover-page" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-cover-page-collapse">
       <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-        <%= link_to root_path, class: "font-medium focus:outline-none", aria: { current: "page" } do %>
-          <%= t "header.home" %>
-        <% end %>
-        <%= link_to room_types_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
-          <%= t "header.room" %>
-        <% end %>
-        <%= link_to "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
-          <%= t "header.service" %>
-        <% end %>
-        <%= link_to "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" do %>
-          <%= t "header.login" %>
+        <%= link_to t("header.home"), root_path, class: "font-medium focus:outline-none", aria: { current: "page" } %>
+        <%= link_to t("header.room"), room_types_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+        <%= link_to t("header.service"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+        <% if logged_in? %>
+          <%= link_to t("header.profile"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+          <%= link_to t("header.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("are_you_sure?") }, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+        <% else %>
+          <%= link_to t("header.login"), login_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <% end %>
         <%= link_to({ locale: "en" }) do %>
           <%= image_tag "english.png", alt: "English", class: "h-6 w-auto" %>

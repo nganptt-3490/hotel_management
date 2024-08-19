@@ -1,2 +1,7 @@
 pagy:
   items: 10
+maximum:
+  name: 50
+  email: 255
+regex:
+  email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
