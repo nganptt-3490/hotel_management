@@ -13,10 +13,13 @@ en:
     fluctuation: "Fluctuation"
     request: "Request"
     review: "Review"
+    profile: "Profile"
+    logout: "Logout"
   footer:
     mess: "Footer for AN hotel"
   mess:
     not_found_room: "Not found room type!"
+    invalid_email_password_combination: "Invalid email password combination"
   rooms:
     title: "All Room Types"
     currencies: "$"
@@ -24,3 +27,6 @@ en:
     guest: "Max Guests:"
     units: "sqd"
     booking: "Booking"
+  email_address: "Email address"
+  password: "Password"
+  are_you_sure?: "Are you sure?"

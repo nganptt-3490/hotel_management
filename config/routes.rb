@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     namespace :admin do
       get "/", to: "static_pages#home"
     end
+
+    get "/login", to: "sessions#new"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
   end
 end

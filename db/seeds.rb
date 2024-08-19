@@ -112,7 +112,7 @@ end
 
 User.create!(username:"Example User",
              email: "example@railstutorial.org",
-             password_digest: "abcxyz",
+             password: "abcxyz",
              role: 1
             )
 
@@ -121,7 +121,7 @@ User.create!(username:"Example User",
   email = "example-#{n+1}@railstutorial.org"
   User.create!(username: username,
                email: email,
-               password_digest: "abcxyz",
+               password: "abcxyz",
                role: 0)
 end
 
