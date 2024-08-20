@@ -29,6 +29,11 @@
           </div>
         </div>
 
+        <%= f.label t("search.utility"), class: "text-black mb-4" %>
+        <div class="grid grid-cols-2 gap-4">
+          <%= render partial: "user/room_types/utility_checkbox", collection: @utilities, as: :utility, locals: { f: f } %>
+        </div>
+
         <%= f.submit t("search.submit"), class: "w-full sm:w-auto whitespace-nowrap py-3 px-4 inline-flex justify-center
           items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent
           bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>

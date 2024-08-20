@@ -28,9 +28,23 @@ module RoomTypesHelper
   end
 
   def get_room_type_available_ids start_date = nil, end_date = nil,
-    min_price = nil, max_price = nil
+    min_price = nil, max_price = nil, utility_ids = []
+
+    utility_ids ||= []
     available_room_ids = check_room_available start_date, end_date,
                                               min_price, max_price
-    Room.by_ids(available_room_ids).pluck(:room_type_id).uniq
+    room_type_ids = Room.by_ids(available_room_ids).pluck(:room_type_id).uniq
+
+    selected_utility_ids = utility_ids.map(&:to_i).reject(&:zero?)
+
+    if selected_utility_ids.any?
+      room_type_ids_with_utilities = RoomType
+                                     .with_utilities(selected_utility_ids)
+                                     .pluck(:id)
+    end
+
+    room_type_ids &= room_type_ids_with_utilities || room_type_ids
+
+    room_type_ids
   end
 end
