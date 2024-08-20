@@ -46,3 +46,6 @@ en:
   list_request: "List request"
   no_requests_found: "No requests found."
   record_not_found: "Record not found"
+  search:
+    submit: "Search"
+    date_valid: "You must fill start date and end date before submit"
