@@ -11,10 +11,10 @@ class Request < ApplicationRecord
           OR (end_date BETWEEN :start_date AND :end_date)",
           start_date:, end_date:)
   }
-  scope :with_start_date, ->(start_date) {
+  scope :with_start_date, lambda {|start_date|
     where(":start_date BETWEEN start_date AND end_date", start_date:)
   }
-  scope :with_end_date, ->(end_date) {
+  scope :with_end_date, lambda {|end_date|
     where(":end_date BETWEEN start_date AND end_date", end_date:)
   }
 end

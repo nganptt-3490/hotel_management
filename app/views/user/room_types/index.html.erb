@@ -1,8 +1,46 @@
 <% provide :title, t("rooms.title") %>
-<h1 class="text-3xl font-bold mb-6"><%= t "rooms.title" %></h1>
-<div class="flex flex-col">
-  <ul class="roomtypes grid grid-cols-2 gap-4 w-2/3 ml-auto mr-16 h-full">
-    <%= render @room_types %>
-  </ul>
-  <%== pagy_nav(@pagy) %>
+
+<div class="flex">
+  <div class="w-1/4 h-screen bg-white flex flex-col items-center justify-start p-4">
+    <%= form_for :search, url: search_path, method: :get, html: { class: "w-full flex flex-col items-center gap-2 sm:gap-3" } do |f| %>
+      <div class="w-full flex flex-col items-center gap-2 sm:gap-3">
+        <%= f.label :start_date, t("search.start_date"), class: "text-black" %>
+        <%= f.date_field :start_date, value: params[:start_date], id: "hero-input-1", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500
+          focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
+          dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black" %>
+
+        <%= f.label :end_date, t("search.end_date"), class: "text-black" %>
+        <%= f.date_field :end_date, value: params[:end_date], id: "hero-input-2", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500
+          focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
+          dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black" %>
+
+        <div class="flex space-x-4">
+           <div>
+            <%= f.label :min_price, t("search.min_price"), class: "text-black mb-4" %>
+            <%= f.text_field :min_price, value: params[:min_price], id: "hero-input-2", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500
+              focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 mt-4
+              dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black", placeholder: t("search.enter_min_price") %>
+          </div>
+          <div>
+            <%= f.label :max_price, t("search.max_price"), class: "text-black mb-4" %>
+            <%= f.text_field :max_price, value: params[:max_price], id: "hero-input-2", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500
+              focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 mt-4
+              dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black", placeholder: t("search.enter_max_price") %>
+          </div>
+        </div>
+
+        <%= f.submit t("search.submit"), class: "w-full sm:w-auto whitespace-nowrap py-3 px-4 inline-flex justify-center
+          items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent
+          bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="w-2/3 ml-auto mr-16 h-screen">
+    <h1 class="text-3xl font-bold mb-6"><%= t "rooms.title" %></h1>
+    <ul class="roomtypes grid grid-cols-2 gap-4 h-full">
+      <%= render @room_types %>
+    </ul>
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>

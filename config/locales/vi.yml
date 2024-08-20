@@ -50,3 +50,9 @@ vi:
   search:
     submit: "Tìm phòng"
     date_valid: "Ngày bắt đầu và kết thúc phải có định dạng hợp lệ."
+    start_date: "Ngày bắt đầu"
+    end_date: "Ngày kết thúc"
+    min_price: "Giá nhỏ nhất"
+    max_price: "Giá lớn nhất"
+    enter_min_price: "Nhập giá nhỏ nhất"
+    enter_max_price: "Nhập giá lớn nhất"

@@ -15,18 +15,11 @@
   <body class="bg-black pb-[60px] flex h-full">
     <div class="flex flex-col mx-auto size-full">
       <%= render "user/layouts/header" %>
-        <% flash.each do |message_type, message| %>
-          <% bg_color = case message_type.to_sym
-                      when :notice then "bg-green-500"
-                      when :alert then "bg-red-500"
-                      when :info then "bg-blue-500"
-                      when :warning then "bg-yellow-500"
-                      else "bg-gray-500"
-                      end %>
-          <div class="<%= bg_color %> text-white p-4 rounded mb-4 text-center w-full">
-            <%= message %>
-          </div>
-        <% end %>
+      <% flash.each do |message_type, message| %>
+        <div class="<%= flash_bg_color(message_type) %> text-white p-4 rounded mb-4 text-center">
+          <%= message %>
+        </div>
+      <% end %>
       <main id="content">
         <%= yield %>
       </main>
