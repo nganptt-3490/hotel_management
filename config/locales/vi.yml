@@ -20,6 +20,9 @@ vi:
     invalid_email_password_combination: "Email và mật khẩu không hợp lệ"
   mess:
     not_found_room: "Không tìm thấy loại phòng tương ứng!"
+    invalid_email_password_combination: "Email không hợp lệ"
+    request_cancelled: "Hủy thành công"
+    request_cancel_fail: "Không hủy được"
   rooms:
     title: "Tất cả các loại phòng"
     currencies: "VND"
@@ -27,6 +30,20 @@ vi:
     guest: "Số khách tối đa:"
     units: "m2"
     booking: "Đặt phòng"
+  request:
+    booking_time: "Thời gian đặt phòng"
+    room_type: "Loại phòng"
+    status:
+      succeed: "Thành công"
+      rejected: "Bị từ chối"
+      pending: "Đang chờ"
+    view_details: "Xem chi tiết"
+    cancel: "Hủy"
+    confirm_cancel: "Hủy?"
   email_address: "Địa chỉ email"
   password: "Mật khẩu"
   are_you_sure?: "Bạn chắc chưa?"
+  please_login: "Làm ơn đăng nhập"
+  list_request: "Danh sách yêu cầu"
+  no_requests_found: "Không tìm thấy yêu cầu"
+  record_not_found: "Không có dữ liệu"

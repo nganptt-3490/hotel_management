@@ -1,5 +1,6 @@
 pagy:
   items: 10
+  items5: 5
 maximum:
   name: 50
   email: 255

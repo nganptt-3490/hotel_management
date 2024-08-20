@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     scope module: "user" do
       root "static_pages#home"
       resources :room_types, only: %i(index show)
+      resources :users, only: %i(cancle_request)
+      get "/profile", to: "users#show"
+      patch "requests/:id/cancel", to: "users#cancel", as: "cancel_request"
     end
 
     namespace :admin do
