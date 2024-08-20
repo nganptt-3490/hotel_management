@@ -3,10 +3,12 @@ class User::RoomTypesController < User::BaseController
     @room_type_ids = get_room_type_available_ids params[:start_date],
                                                  params[:end_date],
                                                  params[:min_price],
-                                                 params[:max_price]
+                                                 params[:max_price],
+                                                 params[:utility_ids]
     @pagy, @room_types = pagy(RoomType.by_ids(@room_type_ids)
                                       .ordered_by_name,
                               limit: Settings.pagy.items)
+    @utilities = Utility.all
   end
 
   def show
@@ -21,7 +23,8 @@ class User::RoomTypesController < User::BaseController
     @room_type_ids = get_room_type_available_ids(params[:search][:start_date],
                                                  params[:search][:end_date],
                                                  params[:search][:min_price],
-                                                 params[:search][:max_price])
+                                                 params[:search][:max_price],
+                                                 params[:search][:utility_ids])
     redirect_to room_types_url(search_params)
   end
 
@@ -34,6 +37,7 @@ class User::RoomTypesController < User::BaseController
   end
 
   def search_params
-    params.require(:search).permit RoomType::ATTRIBUTE_PERMITTED
+    params.require(:search).permit(RoomType::ATTRIBUTE_PERMITTED +
+                                  [utility_ids: []])
   end
 end

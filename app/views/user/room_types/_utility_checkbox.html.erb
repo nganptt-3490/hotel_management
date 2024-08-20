@@ -1,0 +1,12 @@
+<div class="flex justify-start items-center space-x-2">
+  <%= f.check_box :utility_ids, 
+                  { multiple: true,
+                    checked: params.dig(:utility_ids)&.include?(utility.id.to_s),
+                    value: utility.id,
+                    class: "shrink-0 mt-0.5 border-gray-500 rounded text-blue-600 focus:ring-blue-500 
+                    disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 
+                    dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 
+                    dark:focus:ring-offset-gray-800" }, 
+                  utility.id %>
+  <%= f.label "utility_#{utility.id}", utility.name, class: "text-sm text-black ml-2 dark:text-neutral-400" %>
+</div>

@@ -91,7 +91,7 @@ end
   )
 end
 20.times do |n|
-  room_type_id = Faker::Number.between(from: 1, to: 2)
+  room_type_id = Faker::Number.between(from: 1, to: 6)
   status = Faker::Number.between(from: 0, to: 1)
   description = Faker::Lorem.sentence(word_count: 5)
   if n < 5

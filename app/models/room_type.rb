@@ -17,4 +17,11 @@ class RoomType < ApplicationRecord
           max_price.presence,
           max_price.presence || -Float::INFINITY)
   }
+  scope :with_utilities, lambda {|selected_utility_ids|
+    joins(:utilities_in_room_types)
+      .where(utilities_in_room_types: {utility_id: selected_utility_ids})
+      .group("room_types.id")
+      .having("COUNT(utilities_in_room_types.utility_id) = ?",
+              selected_utility_ids.size)
+  }
 end
