@@ -1,0 +1,12 @@
+<li class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 hover:bg-gray-100 transition duration-300">
+<%= image_tag "logo.jpg", alt: "Room Image", class: "h-16 w-auto rounded-md" %>
+<div class="flex-grow">
+  <%= link_to room_type.name, admin_room_type_path(room_type), class: "text-lg font-semibold text-blue-600 hover:text-blue-800 block" %>
+  <p class="text-sm text-gray-600">
+  <%= room_type.price_weekday %> - <%= room_type.price_weekend %> <%= t "rooms.currencies" %>
+  </p>
+</div>
+<%= link_to admin_room_type_path(room_type), class: "text-gray-500 hover:text-gray-700 flex items-center space-x-2" do %>
+  <i class="fa fa-arrow-right text-black text-lg"></i>
+<% end %>
+</li>
