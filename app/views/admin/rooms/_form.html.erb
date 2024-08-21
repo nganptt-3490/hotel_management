@@ -1,0 +1,19 @@
+<%= form_with(model: [:admin, @room], local: true) do |form| %>
+  <div class="mb-4 text-black">
+    <%= form.label :room_number, t("rooms.room_number"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :room_number, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black">
+    <%= form.label :description, t("rooms.description"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_area :description, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black select-black-text">
+    <%= form.label :status, t("rooms.status"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.select :status, [[t("rooms.active"), "active"], [t("rooms.inactive"), "inactive"]], class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black select-black-text">
+    <%= form.label :room_type_id, t("rooms.room_type"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.collection_select :room_type_id, RoomType.all, :id, :name, { prompt: t("rooms.select_room_type") }, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <%= form.submit yield(:button_text), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+<% end %>

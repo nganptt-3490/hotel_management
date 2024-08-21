@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get "/", to: "static_pages#home"
       get "/profile", to: "users#show"
       resources :room_types, only: %i(index show)
-      resources :rooms, only: %i(index show new create)
+      resources :rooms, only: %i(index show create update destroy)
     end
 
     get "/login", to: "sessions#new"

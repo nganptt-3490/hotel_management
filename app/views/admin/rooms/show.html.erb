@@ -1,3 +1,4 @@
+<% provide :button_text, t("edit_room") %>
 <div class="flex items-center space-x-4">
   <div class="w-1/3">
     <%= image_tag "logo.jpg", alt: "Room Image", class: "w-auto rounded-md" %>
@@ -5,14 +6,26 @@
   <div class="w-2/3 bg-gray-800 text-white p-4 rounded-md ml-6 mt-6">
     <p class="text-lg font-semibold mb-2 flex items-center">
       <%= @room.room_number %>
-      <%= link_to "#", class: "ml-2 text-blue-500" do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
     </p>
-    <p class="text-sm mb-2"><%= t "rooms.status" %>: <%= t("rooms.#{@room.status}") %></p>
-    <p class="text-sm mb-2"><%= t "rooms.description", description: @room.description %></p>
-    <p class="text-sm mb-2">
-      <%= t "rooms.room_type" %>: <%= @room.room_type.name %>
-    </p>
+    <p class="text-sm mb-2"><%= t "rooms.status_card", status: t("rooms.#{@room.status}") %></p>
+    <p class="text-sm mb-2"><%= t "rooms.description_card", description: @room.description %></p>
+    <p class="text-sm mb-2"><%= t "rooms.room_type_card", room_type: @room.room_type.name %></p>
+  </div>
+  <div>
+    <button id="open-modal-2" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center">
+      <i class="fas fa-edit"></i>
+    </button>
+    <div id="modal-2" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white p-6 rounded-md w-1/3 relative">
+        <button id="close-modal-2" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-gray-500"></i>
+        </button>
+        <h2 class="text-xl font-semibold mb-4 text-black"><%= t "form_edit_room" %></h2>
+        <%= render "admin/rooms/form" %>
+      </div>
+    </div>
+    <%= link_to admin_room_path(@room), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
   </div>
 </div>
