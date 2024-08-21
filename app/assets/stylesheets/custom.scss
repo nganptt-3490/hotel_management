@@ -15,3 +15,11 @@
 .dropdown-menu.active {
   display: block;
 }
+
+.select-black-text select {
+  color: black !important;
+}
+
+.select-black-text option {
+  color: black;
+}

@@ -1,0 +1,18 @@
+<div class="flex items-center space-x-4">
+  <div class="w-1/3">
+    <%= image_tag "logo.jpg", alt: "Room Image", class: "w-auto rounded-md" %>
+  </div>
+  <div class="w-2/3 bg-gray-800 text-white p-4 rounded-md ml-6 mt-6">
+    <p class="text-lg font-semibold mb-2 flex items-center">
+      <%= @room.room_number %>
+      <%= link_to "#", class: "ml-2 text-blue-500" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </p>
+    <p class="text-sm mb-2"><%= t "rooms.status" %>: <%= t("rooms.#{@room.status}") %></p>
+    <p class="text-sm mb-2"><%= t "rooms.description", description: @room.description %></p>
+    <p class="text-sm mb-2">
+      <%= t "rooms.room_type" %>: <%= @room.room_type.name %>
+    </p>
+  </div>
+</div>
