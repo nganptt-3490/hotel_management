@@ -53,6 +53,11 @@ vi:
     view_details: "Xem chi tiết"
     cancel: "Hủy"
     confirm_cancel: "Hủy?"
+    create_success: "Tạo yêu cầu đặt phòng thành công"
+    not_available: "Phòng bạn đặt không còn trống trong thời gian trên"
+    confirm: "Xác nhận đặt"
+  room_type:
+    not_found: "Không tìm thấy loại phòng này"
   email_address: "Địa chỉ email"
   password: "Mật khẩu"
   are_you_sure?: "Bạn chắc chưa?"
@@ -78,3 +83,6 @@ vi:
   failed: "Đã lỗi"
   updated: "Đã sửa"
   deleted: "Đã xóa"
+  errors:
+    the_form_contains: "Biểu mẫu bao gồm:"
+    error: "lỗi"

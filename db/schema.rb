@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_19_020153) do
     t.datetime "paymented_at"
     t.datetime "deleted_at"
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
+    t.bigint "room_id"
     t.bigint "room_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

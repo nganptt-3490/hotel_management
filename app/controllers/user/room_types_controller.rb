@@ -13,6 +13,7 @@ class User::RoomTypesController < User::BaseController
 
   def show
     @room_type = RoomType.find_by id: params[:id]
+    @request = Request.new(room_type_id: @room_type.id)
     return if @room_type
 
     flash[:warning] = t "mess.not_found_room"

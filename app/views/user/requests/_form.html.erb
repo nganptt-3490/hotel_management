@@ -1,0 +1,6 @@
+<%= form_for @request, url: requests_path, method: :post do |f| %>
+  <%= render "shared/error_messages" %>
+  <%= render partial: "shared/date_fields", locals: { f: f, params: params } %>
+  <%= f.hidden_field :room_type_id, value: @room_type.id %>
+  <%= f.submit t("request.confirm"), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" %>
+<% end %>

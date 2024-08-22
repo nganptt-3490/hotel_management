@@ -1,9 +1,28 @@
 class Request < ApplicationRecord
+  include RoomTypesHelper
+
   belongs_to :user
-  belongs_to :room
+  belongs_to :room, optional: true
   belongs_to :room_type
   has_many :lost_utilities, dependent: :destroy
   has_many :room_costs, dependent: :destroy
+
+  ATTRIBUTE_PERMITTED = %i(start_date end_date room_type_id).freeze
+
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validate :validate_dates
+
+  def validate_dates
+    return if room_available?
+
+    errors.add(:base, I18n.t("request.not_available"))
+  end
+
+  def room_available?
+    available_room_type_ids = get_room_type_available_ids(start_date, end_date)
+    available_room_type_ids.include?(room_type_id)
+  end
 
   scope :accepted, ->{where.not(accepted_at: nil)}
   scope :within_date_range, lambda {|start_date, end_date|
