@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       root "static_pages#home"
       resources :room_types, only: %i(index show)
       resources :users, only: %i(cancle_request)
+      resources :requests, only: :create
       get "/profile", to: "users#show"
       patch "requests/:id/cancel", to: "users#cancel", as: "cancel_request"
       get "search", to: "room_types#search"

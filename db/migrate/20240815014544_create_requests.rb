@@ -10,7 +10,7 @@ class CreateRequests < ActiveRecord::Migration[7.0]
       t.datetime :paymented_at
       t.datetime :deleted_at
       t.references :user, null: false, foreign_key: true
-      t.references :room, null: false, foreign_key: true
+      t.references :room, null: false, foreign_key: true, null: true
       t.references :room_type, null: false, foreign_key: true
 
       t.timestamps

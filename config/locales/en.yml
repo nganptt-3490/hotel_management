@@ -52,6 +52,11 @@ en:
     view_details: "View details"
     cancel: "Cancel"
     confirm_cancel: "Cancel?"
+    create_success: "Create request successfully"
+    not_available: "The selected room type is not available for the chosen dates."
+    confirm: "Confirm"
+  room_type:
+    not_found: "Room type not found"
   email_address: "Email address"
   password: "Password"
   are_you_sure?: "Are you sure?"
@@ -77,3 +82,6 @@ en:
   failed: "Failed"
   updated: "Updated"
   deleted: "Deleted"
+  errors:
+    the_form_contains: "The form contains"
+    error: "errors"
