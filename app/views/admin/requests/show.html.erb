@@ -1,0 +1,16 @@
+<div class="flex items-center space-x-4">
+  <div class="w-1/3">
+    <%= image_tag "logo.jpg", alt: "Room Image", class: "w-auto rounded-md" %>
+  </div>
+  <div class="w-2/3 bg-gray-800 text-white p-4 rounded-md ml-6 mt-6">
+    <p class="text-lg font-semibold mb-2 flex items-center">
+      <%= @request.room_type.name %>
+    </p>
+    <p class="text-sm mb-2"><%= t "request.show.start_date", start_date: @request.start_date %></p>
+    <p class="text-sm mb-2"><%= t "request.show.end_date", end_date: @request.end_date %></p>
+    <p class="text-sm mb-2"><%= t "request.show.request_user", request_user: @request.user.username %></p>
+    <p class="text-sm mb-2"><%= t "request.show.available_room_count", available_room_count: available_room(@request.room_type_id, @request.start_date, @request.end_date).count %></p>
+    <p class="text-sm mb-2"><%= t "request.show.room_number", room_number: get_room_number(@request) %></p>
+    <p class="text-sm mb-2"><%= t "request.show.status", status: request_status(@request) %></p>
+  </div>
+</div>

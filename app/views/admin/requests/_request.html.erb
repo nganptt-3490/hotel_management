@@ -1,0 +1,33 @@
+<tr class="border-b min-h-12 py-3">
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+     <%= start_index + request_counter + 1 %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= request.start_date %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= request.end_date %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+  <%= request.user.username %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= request.room_type.name %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= available_room(request.room_type_id, request.start_date, request.end_date).count %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= get_room_number request %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">
+    <%= request_status request %>
+  </td>
+  <td class="py-4 px-4 text-white font-semibold text-sm">            
+    <div class="flex items-center">
+      <button class="top-4 right-4 bg-green-700 hover:bg-orange-400 text-white py-2 px-6 rounded-full text-sm font-semibold">
+        <%= link_to fa_icon("eye"), admin_request_path(request) %>
+      </button>
+    </div>
+  </td>
+</tr> 

@@ -6,6 +6,7 @@ gem "bcrypt"
 gem "bootsnap", require: false
 gem "config"
 gem "faker"
+gem "font-awesome-rails"
 gem "font-awesome-sass", "~> 6.0.0"
 gem "importmap-rails"
 gem "jbuilder"

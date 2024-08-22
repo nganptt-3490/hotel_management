@@ -44,4 +44,5 @@ class Request < ApplicationRecord
     where(":end_date BETWEEN start_date AND end_date", end_date:)
   }
   scope :by_room_type, ->(room_type_id){where(room_type_id:)}
+  scope :sorted_by_date, ->{order(start_date: :desc, created_at: :desc)}
 end

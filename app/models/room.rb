@@ -11,4 +11,7 @@ class Room < ApplicationRecord
     where(room_type_id: room_type_ids)
   }
   scope :ordered_by_room_number, ->{order(room_number: :asc)}
+  scope :by_type_and_ids, lambda {|room_type_id, available_room_ids|
+    where(id: available_room_ids, room_type_id:)
+  }
 end

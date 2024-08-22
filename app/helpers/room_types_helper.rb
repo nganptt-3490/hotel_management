@@ -47,4 +47,9 @@ module RoomTypesHelper
 
     room_type_ids
   end
+
+  def available_room room_type_id, start_date, end_date
+    available_room_ids = check_room_available start_date, end_date
+    Room.by_type_and_ids(room_type_id, available_room_ids)
+  end
 end

@@ -13,7 +13,7 @@
         <%= link_to t("header.roomonly"), admin_rooms_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <%= link_to t("header.utility"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <%= link_to t("header.fluctuation"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
-        <%= link_to t("header.request"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+        <%= link_to t("header.request"), admin_requests_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <%= link_to t("header.review"), admin_reviews_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <% if logged_in? %>
           <%= link_to t("header.profile"), admin_profile_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
