@@ -4,6 +4,7 @@ class User::UsersController < User::BaseController
   def show
     @pagy, @requests = pagy @current_user.requests,
                             limit: Settings.pagy.items5
+    @review = Review.new
   end
 
   def cancel

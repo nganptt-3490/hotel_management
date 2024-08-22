@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.text :content
       t.datetime :accepted_at
       t.references :user, null: false, foreign_key: true
-      t.references :room, null: false, foreign_key: true
+      t.references :request, null: false, foreign_key: true
 
       t.timestamps
     end

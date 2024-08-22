@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_19_020153) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_22_071043) do
   create_table "lost_utilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "request_id", null: false
@@ -54,10 +54,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_19_020153) do
     t.text "content"
     t.datetime "accepted_at"
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
+    t.bigint "request_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_reviews_on_room_id"
+    t.index ["request_id"], name: "index_reviews_on_request_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_19_020153) do
   add_foreign_key "requests", "room_types"
   add_foreign_key "requests", "rooms"
   add_foreign_key "requests", "users"
-  add_foreign_key "reviews", "rooms"
+  add_foreign_key "reviews", "requests"
   add_foreign_key "reviews", "users"
   add_foreign_key "room_costs", "price_fluctuations"
   add_foreign_key "room_costs", "requests"

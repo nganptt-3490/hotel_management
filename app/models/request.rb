@@ -6,6 +6,7 @@ class Request < ApplicationRecord
   belongs_to :room_type
   has_many :lost_utilities, dependent: :destroy
   has_many :room_costs, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   ATTRIBUTE_PERMITTED = %i(start_date end_date room_type_id).freeze
 
@@ -36,4 +37,5 @@ class Request < ApplicationRecord
   scope :with_end_date, lambda {|end_date|
     where(":end_date BETWEEN start_date AND end_date", end_date:)
   }
+  scope :by_room_type, ->(room_type_id){where(room_type_id:)}
 end

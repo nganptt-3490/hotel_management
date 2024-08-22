@@ -19,23 +19,47 @@ document.addEventListener("turbo:load", () => {
     });
   }
 
-  const openModalButton2 = document.getElementById("open-modal-2");
-  const closeModalButton2 = document.getElementById("close-modal-2");
-  const modal2 = document.getElementById("modal-2");
+  const openModalButtona = document.getElementById("open-modal-a");
+  const closeModalButtona = document.getElementById("close-modal-a");
+  const modala = document.getElementById("modal-a");
 
-  if (openModalButton2 && closeModalButton2 && modal2) {
-    openModalButton2.addEventListener("click", () => {
-      modal2.classList.remove("hidden");
+  if (openModalButtona && closeModalButtona && modala) {
+    openModalButtona.addEventListener("click", () => {
+      modala.classList.remove("hidden");
     });
 
-    closeModalButton2.addEventListener("click", () => {
-      modal2.classList.add("hidden");
+    closeModalButtona.addEventListener("click", () => {
+      modala.classList.add("hidden");
     });
 
     window.addEventListener("click", (event) => {
-      if (event.target === modal2) {
-        modal2.classList.add("hidden");
+      if (event.target === modala) {
+        modala.classList.add("hidden");
       }
     });
   }
+
+  document
+    .querySelectorAll('[id^="open-modal-"]')
+    .forEach((openModalButton) => {
+      const id = openModalButton.id.split("-").pop();
+      const modal = document.getElementById(`modal-${id}`);
+      const closeModalButton = document.getElementById(`close-modal-${id}`);
+
+      if (modal && closeModalButton) {
+        openModalButton.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+        });
+
+        closeModalButton.addEventListener("click", () => {
+          modal.classList.add("hidden");
+        });
+
+        window.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      }
+    });
 });

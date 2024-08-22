@@ -90,8 +90,8 @@ end
     description: description
   )
 end
-20.times do |n|
-  room_type_id = Faker::Number.between(from: 1, to: 6)
+30.times do |n|
+  room_type_id = Faker::Number.between(from: 1, to: 5)
   status = Faker::Number.between(from: 0, to: 1)
   description = Faker::Lorem.sentence(word_count: 5)
   if n < 5
@@ -125,19 +125,6 @@ User.create!(username:"Example User",
                role: 0)
 end
 
-20.times do |n|
-  user_id = Faker::Number.between(from: 1, to: 10)
-  room_id = Faker::Number.between(from: 1, to: 5)
-  rate = Faker::Number.between(from: 3, to: 5)
-  content = Faker::Lorem.sentence(word_count: 5)
-  Review.create!(
-                user_id: user_id,
-                room_id: room_id,
-                rate: rate,
-                content: content
-  )
-end
-
 PriceFluctuation.create!(name: "Quốc khánh",
                         start_date: Date.new(2024,9,1),
                         end_date: Date.new(2024,9,4),
@@ -164,6 +151,19 @@ PriceFluctuation.create!(name: "30/4",
                   user_id: user_id,
                   start_date: start_date,
                   end_date: end_date
+  )
+end
+
+20.times do |n|
+  user_id = Faker::Number.between(from: 1, to: 10)
+  request_id = Faker::Number.between(from: 1, to: 5)
+  rate = Faker::Number.between(from: 3, to: 5)
+  content = Faker::Lorem.sentence(word_count: 5)
+  Review.create!(
+                user_id: user_id,
+                request_id: request_id,
+                rate: rate,
+                content: content
   )
 end
 
