@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   enum role: {regular_user: 0, admin: 1}
   has_many :reviews, dependent: :destroy
-  has_many :requests, dependent: :destroy
+  has_many :requests, dependent: :destroy, class_name: Request.name
 
   validates :username, presence: true,
                        length: {maximum: Settings.maximum.name}

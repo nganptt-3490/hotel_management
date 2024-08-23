@@ -8,15 +8,12 @@
         <%= t "request.room_type" %>: <%= request.room_type.name %>
       </p>
     </div>
+    <% latest_history = request.histories.latest %>
     <div class="text-sm font-semibold">
-      <% if request.accepted_at.present? %>
-        <span class="text-green-600"><%= t "request.status.succeed" %></span>
-      <% elsif request.rejected_at.present? %>
-        <span class="text-red-600"><%= t "request.status.rejected" %></span>
-      <% elsif request.deleted_at.present? %>
-        <span class="text-gray-600"><%= t "request.status.canceled" %></span>
+      <% if latest_history.present? %>
+        <span class="text-color-<%= latest_history.status %>"><%= t "request.status.#{latest_history.status}" %></span>
       <% else %>
-        <span class="text-yellow-600"><%= t "request.status.pending" %></span>
+      <span class="text-color-<%= latest_history.status %>"><%= t "request.status.pending" %></span>
       <% end %>
     </div>
   </div>
@@ -27,7 +24,7 @@
   <% end %>
 
   <div class="flex items-center space-x-2"> 
-    <% if request.deleted_at.blank? && request.accepted_at.blank? && request.rejected_at.blank? %>
+    <% if latest_history.pending? %>
       <%= link_to request_path(request), data: { turbo_method: :patch, turbo_confirm: t("request.confirm_cancel") }, class: "bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300" do %>
         <%= t "request.cancel" %>
       <% end %>

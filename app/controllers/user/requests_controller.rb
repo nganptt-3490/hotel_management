@@ -13,7 +13,7 @@ class User::RequestsController < User::BaseController
   end
 
   def update
-    if @request.update deleted_at: Time.current
+    if @request.histories.create(status: :canceled)
       flash[:notice] = t "mess.request_cancelled"
     else
       flash[:alert] = t "mess.request_cancel_fail"

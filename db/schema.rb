@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_22_071043) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_23_031626) do
+  create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "request_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_histories_on_request_id"
+  end
+
   create_table "lost_utilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "request_id", null: false
@@ -33,17 +41,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_071043) do
   create_table "requests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.datetime "accepted_at"
-    t.datetime "rejected_at"
     t.text "reject_reason"
     t.integer "payment"
     t.datetime "paymented_at"
-    t.datetime "deleted_at"
     t.bigint "user_id", null: false
     t.bigint "room_id"
     t.bigint "room_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "history_id"
+    t.index ["history_id"], name: "index_requests_on_history_id"
     t.index ["room_id"], name: "index_requests_on_room_id"
     t.index ["room_type_id"], name: "index_requests_on_room_type_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
@@ -123,8 +130,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_071043) do
     t.index ["utility_id"], name: "index_utilities_in_room_types_on_utility_id"
   end
 
+  add_foreign_key "histories", "requests"
   add_foreign_key "lost_utilities", "requests"
   add_foreign_key "lost_utilities", "utilities"
+  add_foreign_key "requests", "histories"
   add_foreign_key "requests", "room_types"
   add_foreign_key "requests", "rooms"
   add_foreign_key "requests", "users"
