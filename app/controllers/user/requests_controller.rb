@@ -1,4 +1,5 @@
-class User::RequestsController < ApplicationController
+class User::RequestsController < User::BaseController
+  before_action :set_request, only: %i(update)
   before_action :set_room_type, only: :create
 
   def create
@@ -9,6 +10,15 @@ class User::RequestsController < ApplicationController
     else
       respond_to(&:turbo_stream)
     end
+  end
+
+  def update
+    if @request.update deleted_at: Time.current
+      flash[:notice] = t "mess.request_cancelled"
+    else
+      flash[:alert] = t "mess.request_cancel_fail"
+    end
+    redirect_to profile_path
   end
 
   private
@@ -23,6 +33,13 @@ class User::RequestsController < ApplicationController
     return if @room_type
 
     flash[:alert] = t "room_type.not_found"
+  end
+
+  def set_request
+    @request = Request.find_by id: params[:id]
+    return if @request
+
+    flash[:warning] = t "record_not_found"
     redirect_to root_path
   end
 end
