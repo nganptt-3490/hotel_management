@@ -1,0 +1,19 @@
+<%= form_for [:admin, @fluctuation], local: true do |form| %>
+  <div class="mb-4 text-black">
+    <%= form.label :name, t("price_fluctuation.table.name"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :name, value: @fluctuation.name, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black">
+    <%= form.label :start_date, t("price_fluctuation.table.start_date"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.date_field :start_date, value: @fluctuation.start_date, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black select-black-text">
+    <%= form.label :end_date, t("price_fluctuation.table.end_date"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.date_field :end_date, value: @fluctuation.end_date, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black select-black-text">
+    <%= form.label :rate, t("price_fluctuation.table.rate"), class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :rate, value: @fluctuation.rate, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <%= form.submit yield(:button_text), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+<% end %>

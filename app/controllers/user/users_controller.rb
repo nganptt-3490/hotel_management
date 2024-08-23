@@ -2,7 +2,7 @@ class User::UsersController < User::BaseController
   before_action :logged_in_user, only: %i(show)
   before_action :set_request, only: %i(cancel)
   def show
-    @pagy, @requests = pagy @current_user.requests,
+    @pagy, @requests = pagy @current_user.requests.order_by_created_at_desc,
                             limit: Settings.pagy.items5
     @review = Review.new
   end
