@@ -14,7 +14,7 @@
         <%= link_to t("header.utility"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <%= link_to t("header.fluctuation"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <%= link_to t("header.request"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
-        <%= link_to t("header.review"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+        <%= link_to t("header.review"), admin_reviews_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <% if logged_in? %>
           <%= link_to t("header.profile"), admin_profile_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
           <%= link_to t("header.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("are_you_sure?") }, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>

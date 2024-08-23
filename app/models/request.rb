@@ -26,7 +26,7 @@ class Request < ApplicationRecord
     available_room_type_ids.include?(room_type_id)
   end
 
-  scope :accepted, lambda {|_x|
+  scope :accepted, lambda {|_x = nil|
     joins(:histories)
       .where(histories: {id: History.latest_id(subquery: :request_id)})
       .merge(History.with_status(:accepted))

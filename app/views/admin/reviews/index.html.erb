@@ -1,0 +1,26 @@
+<h1 class="text-3xl font-bold mb-6"><%= t "list_review" %></h1>
+<div class="flex flex-col">
+  <div class="container mx-auto p-4">
+    <table class="min-w-full border-collapse">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.number" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.review_user" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.room_type" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.room" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.time" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.rate" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.content" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.status" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium text-gray-700 text-center"><%= t "review.table.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "review", collection: @reviews, as: :review, locals: { start_index: @review_start_index } %>  
+      </tbody>
+    </table>
+    <div class="mt-4">
+      <%== pagy_nav(@pagy) %>
+    </div>
+  </div>
+</div>

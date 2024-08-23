@@ -1,0 +1,32 @@
+<tr class="border-b min-h-12 py-3">
+  <td class="py-4 px-4 font-semibold text-sm text-center">
+    <%= start_index + review_counter + 1 %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.user.username %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.request.room_type.name %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.request.room.room_number %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.request.start_date %> <%= t "to" %> <%= review.request.end_date %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.rate %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <%= review.content %>
+  </td>
+  <td class="py-4 px-4 text-color-<%= review.status %> font-semibold text-sm text-center">
+    <%= review.status %>
+  </td>
+  <td class="py-4 px-4 font-medium text-sm text-center">
+    <div class="flex justify-center items-center space-x-4">
+      <%= link_to t("accept"), accept_admin_review_path(review), data: {"turbo-method": :patch, turbo_confirm: t("are_you_sure?")}, class: "accept-button-color-#{review.status} hover:bg-green-400 text-white py-2 px-6 rounded-full text-sm font-semibold inline-block" %>
+      <%= link_to t("reject"), reject_admin_review_path(review), data: {"turbo-method": :patch, turbo_confirm: t("are_you_sure?")}, class: "reject-button-color-#{review.status} hover:bg-red-400 text-white py-2 px-6 rounded-full text-sm font-semibold inline-block" %>
+    </div>
+  </td>
+</tr>
