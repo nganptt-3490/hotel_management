@@ -7,6 +7,7 @@ class Request < ApplicationRecord
   has_many :lost_utilities, dependent: :destroy
   has_many :room_costs, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :histories, dependent: :destroy
 
   ATTRIBUTE_PERMITTED = %i(start_date end_date room_type_id).freeze
 
@@ -25,7 +26,12 @@ class Request < ApplicationRecord
     available_room_type_ids.include?(room_type_id)
   end
 
-  scope :accepted, ->{where.not(accepted_at: nil)}
+  scope :accepted, lambda {|_x|
+    joins(:histories)
+      .where(histories: {id: History.latest_id(subquery: :request_id)})
+      .merge(History.with_status(:accepted))
+  }
+
   scope :within_date_range, lambda {|start_date, end_date|
     where("(start_date BETWEEN :start_date AND :end_date)
           OR (end_date BETWEEN :start_date AND :end_date)",

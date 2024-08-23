@@ -46,7 +46,7 @@ en:
     booking_time: "Booking time"
     room_type: "Room type"
     status:
-      succeed: "Succeed"
+      accepted: "Accepted"
       rejected: "Rejected"
       pending: "Pending"
       canceled: "Canceled"

@@ -146,12 +146,20 @@ PriceFluctuation.create!(name: "30/4",
   user_id = Faker::Number.between(from: 1, to: 10)
   start_date = Faker::Date.backward(days: 90)
   end_date = start_date + rand(1..5).days
-  Request.create!(room_id: room_id,
+  request = Request.create!(room_id: room_id,
                   room_type_id: room_type_id,
                   user_id: user_id,
                   start_date: start_date,
                   end_date: end_date
   )
+  history_statuses = %i(pending accepted rejected canceled)
+  history_count = Faker::Number.between(from: 1, to: 3) # Tạo từ 1 đến 3 history
+
+  history_count.times do
+    request.histories.create!(
+      status: history_statuses.sample
+    )
+  end
 end
 
 20.times do |n|
