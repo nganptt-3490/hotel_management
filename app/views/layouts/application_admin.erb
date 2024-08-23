@@ -15,6 +15,11 @@
   <body class="bg-black pb-[60px] flex h-full">
     <div class="flex flex-col mx-auto size-full">
       <%= render "admin/layouts/header" %>
+      <% flash.each do |message_type, message| %>
+        <div class="<%= flash_bg_color(message_type) %> text-white p-4 rounded mb-4 text-center">
+          <%= message %>
+        </div>
+      <% end %>
       <main id="content">
         <%= yield %>
       </main>

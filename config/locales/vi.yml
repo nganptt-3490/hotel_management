@@ -57,7 +57,7 @@ vi:
     create_success: "Tạo yêu cầu đặt phòng thành công"
     create_failure: "Tạo yêu cầu đặt phòng thất bại"
     not_available: "Phòng bạn đặt không còn trống trong thời gian trên"
-    confirm: "Xác nhận đặt"
+    confirm: "Xác nhận"
     payment: "Thanh toán"
     not_found: "Không tìm thấy yêu cầu đặt phòng"
     table:
@@ -80,6 +80,14 @@ vi:
       room_number: "Số phòng: %{room_number}"
       status: "Tình trạng: %{status}"
     list_request: "Danh sách yêu cầu đặt phòng"
+    accept_success: "Xác nhận thành công"
+    accept_failed: "Xác nhận thất bại"
+    reject_success: "Từ chối thành công"
+    reject_failed: "Từ chối thất bại"
+    room_not_found: "Hết phòng"
+    choose_room: "Chọn phòng"
+    reject_reason: "Lý do từ chối"
+    reject_reason_placeholder: "Nhập lí do từ chối..."
   room_type:
     not_found: "Không tìm thấy loại phòng này"
     payment: "Thanh toán"

@@ -1,0 +1,1 @@
+<%= turbo_stream.replace "accept_partial_#{request.id}", partial: "requests/accept", locals: { request: @request, available_rooms: @available_rooms } %>

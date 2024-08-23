@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         end
       end
       resources :requests, only: %i(index show)
+      patch "requests/:id/accept", to: "requests#accept", as: "accept_request"
+      patch "requests/:id/reject", to: "requests#reject", as: "reject_request"
     end
 
     get "/login", to: "sessions#new"
