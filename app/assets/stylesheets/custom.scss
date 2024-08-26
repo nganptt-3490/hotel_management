@@ -39,3 +39,27 @@
 .text-color-canceled {
   color: gray;
 }
+
+.accept-button-color-rejected {
+  background-color: green;
+}
+
+.accept-button-color-pending {
+  background-color: green;
+}
+
+.accept-button-color-accepted {
+  background-color: gray;
+}
+
+.reject-button-color-accepted {
+  background-color: red;
+}
+
+.reject-button-color-pending {
+  background-color: red;
+}
+
+.reject-button-color-rejected {
+  background-color: gray;
+}

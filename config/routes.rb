@@ -15,6 +15,12 @@ Rails.application.routes.draw do
       get "/profile", to: "users#show"
       resources :room_types, only: %i(index show)
       resources :rooms, only: %i(index show create update destroy)
+      resources :reviews, only: %i(index) do
+        member do
+          patch :accept
+          patch :reject
+        end
+      end
     end
 
     get "/login", to: "sessions#new"

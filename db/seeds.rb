@@ -153,7 +153,7 @@ PriceFluctuation.create!(name: "30/4",
                   end_date: end_date
   )
   history_statuses = %i(pending accepted rejected canceled)
-  history_count = Faker::Number.between(from: 1, to: 3) # Tạo từ 1 đến 3 history
+  history_count = Faker::Number.between(from: 1, to: 3)
 
   history_count.times do
     request.histories.create!(
@@ -167,11 +167,13 @@ end
   request_id = Faker::Number.between(from: 1, to: 5)
   rate = Faker::Number.between(from: 3, to: 5)
   content = Faker::Lorem.sentence(word_count: 5)
+  status_review = Review.statuses.keys.sample
   Review.create!(
                 user_id: user_id,
                 request_id: request_id,
                 rate: rate,
-                content: content
+                content: content,
+                status: status_review
   )
 end
 

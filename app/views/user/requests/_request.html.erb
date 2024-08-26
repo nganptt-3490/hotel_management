@@ -13,7 +13,7 @@
       <% if latest_history.present? %>
         <span class="text-color-<%= latest_history.status %>"><%= t "request.status.#{latest_history.status}" %></span>
       <% else %>
-      <span class="text-color-<%= latest_history.status %>"><%= t "request.status.pending" %></span>
+       <span class="text-color-<%= latest_history.status %>"><%= t "request.status.pending" %></span>
       <% end %>
     </div>
   </div>
@@ -32,9 +32,11 @@
     <%= link_to "#", class: "bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300" do %>
       <%= t "request.payment" %>
     <% end %>
-    <button id="open-modal-<%= request.id %>" class="bg-yellow-300 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300">
-      <%= t "request.review" %>
-    </button>
+    <% if latest_history.accepted? %>
+      <button id="open-modal-<%= request.id %>" class="bg-yellow-300 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300">
+        <%= t "request.review" %>
+      </button>
+    <% end %>
     <div id="modal-<%= request.id %>" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
       <div class="bg-white p-6 rounded-md w-1/3 relative">
         <button id="close-modal-<%= request.id %>" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">

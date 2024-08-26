@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_23_031626) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_23_092751) do
   create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "status"
     t.bigint "request_id", null: false
@@ -59,11 +59,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_23_031626) do
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "rate"
     t.text "content"
-    t.datetime "accepted_at"
     t.bigint "user_id", null: false
     t.bigint "request_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
     t.index ["request_id"], name: "index_reviews_on_request_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
