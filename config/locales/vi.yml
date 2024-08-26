@@ -55,6 +55,7 @@ vi:
     cancel: "Hủy"
     confirm_cancel: "Hủy?"
     create_success: "Tạo yêu cầu đặt phòng thành công"
+    create_failure: "Tạo yêu cầu đặt phòng thất bại"
     not_available: "Phòng bạn đặt không còn trống trong thời gian trên"
     confirm: "Xác nhận đặt"
     payment: "Thanh toán"

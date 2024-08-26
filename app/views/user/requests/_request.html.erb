@@ -13,7 +13,7 @@
       <% if latest_history.present? %>
         <span class="text-color-<%= latest_history.status %>"><%= t "request.status.#{latest_history.status}" %></span>
       <% else %>
-       <span class="text-color-<%= latest_history.status %>"><%= t "request.status.pending" %></span>
+        <span class="text-color-yellow"><%= t "request.status.pending" %></span>
       <% end %>
     </div>
   </div>
@@ -23,7 +23,7 @@
     <i class="fa fa-arrow-right text-blue-600 text-lg"></i>
   <% end %>
 
-  <div class="flex items-center space-x-2"> 
+  <div class="flex items-center space-x-2">
     <% if latest_history.pending? %>
       <%= link_to request_path(request), data: { turbo_method: :patch, turbo_confirm: t("request.confirm_cancel") }, class: "bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300" do %>
         <%= t "request.cancel" %>

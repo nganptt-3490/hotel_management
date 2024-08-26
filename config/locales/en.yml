@@ -54,6 +54,7 @@ en:
     cancel: "Cancel"
     confirm_cancel: "Cancel?"
     create_success: "Create request successfully"
+    create_failure: "Create request failed"
     not_available: "The selected room type is not available for the chosen dates."
     confirm: "Confirm"
     payment: "Payment"

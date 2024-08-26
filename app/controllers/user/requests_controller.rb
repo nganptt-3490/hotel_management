@@ -3,13 +3,15 @@ class User::RequestsController < User::BaseController
   before_action :set_room_type, only: :create
 
   def create
-    @request = current_user.requests.build request_params
-    if @request.save
+    ActiveRecord::Base.transaction do
+      @request = current_user.requests.build request_params
+      save_request_and_create_history
       flash[:success] = t "request.create_success"
       redirect_to profile_path
-    else
-      respond_to(&:turbo_stream)
     end
+  rescue StandardError => e
+    flash.now[:error] = t("request.create_failure") + ": #{e.message}"
+    respond_to(&:turbo_stream)
   end
 
   def update
@@ -41,5 +43,10 @@ class User::RequestsController < User::BaseController
 
     flash[:warning] = t "record_not_found"
     redirect_to root_path
+  end
+
+  def save_request_and_create_history
+    @request.save!
+    @request.histories.create!(status: :pending)
   end
 end
