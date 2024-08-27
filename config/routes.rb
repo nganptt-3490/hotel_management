@@ -33,6 +33,7 @@ Rails.application.routes.draw do
           patch "send_total_cost"
         end
       end
+      resources :price_fluctuations, only: :index
     end
 
     get "/login", to: "sessions#new"

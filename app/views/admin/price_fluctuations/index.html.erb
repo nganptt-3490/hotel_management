@@ -1,0 +1,38 @@
+<div class="container mx-auto p-4">
+  <div class="flex flex-col">
+    <div class="ml-auto mb-4 w-1/4">
+      <%= form_for :search, url: admin_price_fluctuations_path, method: :get, html: { class: "flex items-center gap-2 sm:gap-3" } do |f| %>
+        <div class="flex items-center w-full">
+          <%= f.text_field :name, value: params[:name], id: "hero-input-2", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black", placeholder: t("price_fluctuation.search.enter_name") %>
+
+          <%= f.submit t("search.submit"), class: "ml-2 py-3 px-5 inline-flex justify-center items-center text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="w-full">
+      <table class="min-w-full border-collapse">
+        <thead>
+          <tr class="bg-gray-600">
+            <th class="py-2 px-4 text-left text-sm font-medium text-center"><%= t "request.table.number" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "price_fluctuation.table.name" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "price_fluctuation.table.start_date" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "price_fluctuation.table.end_date" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "price_fluctuation.table.rate" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.action" %></th>
+          </tr>
+        </thead>
+          <tbody>
+            <% if price_fluctuation_exist? @fluctuations %>
+              <%= render partial: "fluctuation", collection: @fluctuations, as: :fluctuation, locals: { start_index: @start_index } %> 
+            <% else %>
+              <tr>
+                <td colspan="6" class="text-center py-4"><%= t("price_fluctuation.search.not_found") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <%== pagy_nav(@pagy) %>
+</div>

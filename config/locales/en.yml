@@ -107,6 +107,16 @@ en:
       time: "Time"
       status: "Status"
       action: "Action"
+  price_fluctuation:
+    list_fluctuation: "List holiday price change"
+    search:
+      enter_name: "Enter holiday name"
+      not_found: "Not found"
+    table:
+      name: "Holiday name"
+      start_date: "Start date"
+      end_date: "End date"
+      rate: "Price rate"
   email_address: "Email address"
   password: "Password"
   are_you_sure?: "Are you sure?"
