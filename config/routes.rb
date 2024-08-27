@@ -21,6 +21,7 @@ Rails.application.routes.draw do
           patch :reject
         end
       end
+      resources :requests, only: %i(index show)
     end
 
     get "/login", to: "sessions#new"

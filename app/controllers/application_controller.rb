@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include RoomTypesHelper
+  include RequestsHelper
   include Pagy::Backend
   include SessionsHelper
   before_action :set_locale

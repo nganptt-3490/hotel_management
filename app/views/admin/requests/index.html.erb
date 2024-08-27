@@ -1,0 +1,24 @@
+<h1 class="text-3xl font-bold mb-6"><%= t "request.list_request" %></h1>
+<div class="flex flex-col">
+  <div class="container mx-auto p-4">
+    <table class="min-w-full border-collapse">
+      <thead>
+        <tr class="bg-gray-600">
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.number" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.start_date" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.end_date" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.request_user" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_type" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.available_room_count" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_number" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.status" %></th>
+          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "request", collection: @requests, as: :request, locals: { start_index: @start_index } %>  
+      </tbody>
+    </table>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>
