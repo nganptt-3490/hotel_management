@@ -1,0 +1,12 @@
+<%= form_for @request, url: admin_accept_request_path(@request), method: :patch do |f| %>
+  <% if available_room(@request.room_type_id, @request.start_date, @request.end_date).blank? %>
+    <%= t "request.room_not_found" %>
+  <% else %>
+    <%= render "shared/error_messages" %>
+    <%= f.label :countries, t("request.choose_room"), class: "block mb-2 text-sm font-medium text-white dark:text-white" %>
+    <%= f.select :room_id, (@rooms.map { |room| [room.room_number, room.id] }),
+                  { prompt: t("request.choose_room") }, 
+                  { id: "requests", class: "select-black-text bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" } %>
+    <%= f.submit t("request.confirm"), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" %>
+  <% end%>
+<% end %>

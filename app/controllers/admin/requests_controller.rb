@@ -7,9 +7,71 @@ class Admin::RequestsController < Admin::BaseController
 
   def show
     @request = Request.find_by id: params[:id]
+    @rooms = available_room(@request.room_type_id,
+                            @request.start_date,
+                            @request.end_date)
     return if @request
 
     flash[:warning] = t "request.not_found"
     redirect_to root_path
+  end
+
+  def accept
+    ActiveRecord::Base.transaction do
+      @request = Request.find params[:id]
+      room_id = params[:request][:room_id]
+
+      @request.update!(room_id:, reject_reason: nil)
+      @request.histories.create! status: :accepted
+      create_room_costs @request
+
+      flash[:success] = t "request.accept_success"
+      redirect_to admin_requests_path
+    rescue ActiveRecord::RecordInvalid => e
+      handle_error(e, :accept)
+      respond_to(&:turbo_stream)
+    end
+  end
+
+  def reject
+    ActiveRecord::Base.transaction do
+      @request = Request.find params[:id]
+      reject_reason = params[:request][:reject_reason]
+
+      @request.update_attribute(:reject_reason, reject_reason)
+      @request.update_attribute(:room_id, nil)
+      @request.histories.create! status: :rejected
+      delete_related_room_costs @request
+
+      flash[:success] = t "request.reject_success"
+      redirect_to admin_requests_path
+    rescue ActiveRecord::RecordInvalid => e
+      handle_error(e, :reject)
+      respond_to(&:turbo_stream)
+    end
+  end
+
+  private
+  def handle_error exception, type
+    flash[:error] = t("request.#{type}_failed") + ": #{exception.message}"
+    raise ActiveRecord::Rollback
+  end
+
+  def create_room_costs request
+    start_date = request.start_date
+    end_date = request.end_date
+
+    (start_date...end_date).each do |use_date|
+      price_fluctuation = PriceFluctuation
+                          .find_by("start_date <= ? AND end_date >= ?",
+                                   use_date, use_date)
+      price_fluctuation_id = price_fluctuation&.id
+      RoomCost.create!(request_id: request.id,
+                       use_date:, price_fluctuation_id:)
+    end
+  end
+
+  def delete_related_room_costs request
+    RoomCost.by_request_id(request.id).destroy_all
   end
 end
