@@ -62,4 +62,24 @@ document.addEventListener("turbo:load", () => {
         });
       }
     });
+
+  const openModalButtonb = document.getElementById("open-modal-b");
+  const closeModalButtonb = document.getElementById("close-modal-b");
+  const modalb = document.getElementById("modalb");
+
+  if (openModalButtonb && closeModalButtonb && modalb) {
+    openModalButtonb.addEventListener("click", () => {
+      modalb.classList.remove("hidden");
+    });
+
+    closeModalButtonb.addEventListener("click", () => {
+      modalb.classList.add("hidden");
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === modalb) {
+        modalb.classList.add("hidden");
+      }
+    });
+  }
 });

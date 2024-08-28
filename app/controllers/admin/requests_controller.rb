@@ -1,4 +1,5 @@
 class Admin::RequestsController < Admin::BaseController
+  before_action :find_request_by_id, only: %i(show send_total_cost)
   def index
     @pagy, @requests = pagy(Request.includes(:user).sorted_by_date,
                             limit: Settings.pagy.items)
@@ -6,7 +7,9 @@ class Admin::RequestsController < Admin::BaseController
   end
 
   def show
-    @request = Request.find_by id: params[:id]
+    @lost_utilities = LostUtility.by_request(@request.id)
+    @total_cost = calculate_total_cost(@request)
+    @utilities = Utility.for_room_type(@request.room_type_id)
     @rooms = available_room(@request.room_type_id,
                             @request.start_date,
                             @request.end_date)
@@ -51,6 +54,15 @@ class Admin::RequestsController < Admin::BaseController
     end
   end
 
+  def send_total_cost
+    if @request.update(payment: params[:total_cost])
+      flash[:success] = t "updated"
+    else
+      flash[:danger] = t "failed"
+    end
+    redirect_to admin_request_path
+  end
+
   private
   def handle_error exception, type
     flash[:error] = t("request.#{type}_failed") + ": #{exception.message}"
@@ -73,5 +85,21 @@ class Admin::RequestsController < Admin::BaseController
 
   def delete_related_room_costs request
     RoomCost.by_request_id(request.id).destroy_all
+  end
+
+  def calculate_total_cost request
+    room_costs_total = request.room_costs.reduce(0) do |sum, room_cost|
+      sum + calculate_room_cost(room_cost, request.room_type)
+    end
+
+    lost_utility_costs_total = @lost_utilities.reduce(0) do |sum, lost_utility|
+      sum + lost_utility.quantity * lost_utility.utility.cost
+    end
+
+    room_costs_total + lost_utility_costs_total
+  end
+
+  def find_request_by_id
+    @request = Request.find_by id: params[:id]
   end
 end

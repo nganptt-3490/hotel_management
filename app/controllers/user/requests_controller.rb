@@ -23,6 +23,17 @@ class User::RequestsController < User::BaseController
     redirect_to profile_path
   end
 
+  def payment
+    @request = Request.find params[:id]
+
+    if @request.update(paymented_at: Time.current)
+      flash[:success] = t "updated"
+    else
+      flash[:danger] = t "failed"
+    end
+    redirect_to request_path
+  end
+
   private
 
   def request_params

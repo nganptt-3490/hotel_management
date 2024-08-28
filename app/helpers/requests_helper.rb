@@ -15,4 +15,18 @@ module RequestsHelper
       request.room.room_number
     end
   end
+
+  def calculate_room_cost room_cost, room_type
+    price = if room_cost.use_date.saturday? || room_cost.use_date.sunday?
+              room_type.price_weekend
+            else
+              room_type.price_weekday
+            end
+
+    if room_cost.price_fluctuation.present?
+      room_cost.price_fluctuation.rate * price
+    else
+      price
+    end
+  end
 end

@@ -1,0 +1,12 @@
+<%= form_with model: LostUtility, url: admin_lost_utilities_path, method: :post, remote: true, id: "lost-utility-form" do |f| %>
+  <%= f.hidden_field :request_id, value: @request.id %>
+  <div class="mb-4 text-black select-black-text">
+    <%= f.label :utility_id, t("utility_in_room"), class: "block text-sm font-medium text-gray-700" %>
+    <%= f.collection_select :utility_id, utilities, :id, :name, prompt: t("sellect_utility"), class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <div class="mb-4 text-black">
+    <%= f.label :quantity, t("quantity"), class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :quantity, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+  <%= f.submit t("request.confirm"), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" %>
+<% end %>

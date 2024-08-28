@@ -4,7 +4,11 @@ Rails.application.routes.draw do
       root "static_pages#home"
       resources :room_types, only: %i(index show)
       resources :users, only: %i(cancle_request)
-      resources :requests, only: %i(update create)
+      resources :requests, only: %i(update create)  do
+        member do
+          patch :payment
+        end
+      end
       resources :reviews, only: %i(create)
       get "/profile", to: "users#show"
       get "search", to: "room_types#search"
@@ -15,15 +19,20 @@ Rails.application.routes.draw do
       get "/profile", to: "users#show"
       resources :room_types, only: %i(index show)
       resources :rooms, only: %i(index show create update destroy)
+      resources :lost_utilities, only: %i(create)
       resources :reviews, only: %i(index) do
         member do
           patch :accept
           patch :reject
         end
       end
-      resources :requests, only: %i(index show)
       patch "requests/:id/accept", to: "requests#accept", as: "accept_request"
       patch "requests/:id/reject", to: "requests#reject", as: "reject_request"
+      resources :requests, only: %i(index show) do
+        member do
+          patch "send_total_cost"
+        end
+      end
     end
 
     get "/login", to: "sessions#new"

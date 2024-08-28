@@ -1,0 +1,27 @@
+<div class="bg-white p-6 rounded-md w-1/3 relative">
+  <button id="close-modal-b" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+    <%= fa_icon "times", class: "text-gray-500" %>
+  </button>
+  <h2 class="text-xl font-semibold mb-4 text-black"><%= t "form_create_room" %></h2>
+  <p class="text-black"><%= t "room_cost" %></p>
+  <ul>
+    <% request_ne.room_costs.each do |room_cost| %>
+      <li class="text-black">
+        <%= room_cost.use_date %> : <%= calculate_room_cost(room_cost, @request.room_type) %>
+      </li>
+    <% end %>
+  </ul>
+  <ul>
+    <% lost_utilities.each do |lost_utility| %>
+      <li class="text-black">
+        <%= lost_utility.utility.name %> * <%= lost_utility.quantity %> : <%= lost_utility.quantity *  lost_utility.utility.cost %>
+      </li>
+    <% end %>
+  </ul>
+  <p class="text-black"><%= t("total_cost", total_cost: @total_cost) %></p>
+  <%= link_to t("add_utilities"), "#", id: "booking-button-2", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <div id="booking-form-2" class="hidden mt-4 p-4 bg-white rounded-md">
+    <%= render "admin/lost_utilities/form", utilities: utilities %>
+  </div>
+  <%= button_to t("require_payment"), send_total_cost_admin_request_path(@request, total_cost: @total_cost), method: :patch, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+</div>

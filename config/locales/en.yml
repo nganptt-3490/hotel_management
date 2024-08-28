@@ -18,6 +18,7 @@ en:
     logout: "Logout"
   footer:
     mess: "Footer for AN hotel"
+    invalid_email_password_combination: "Invalid email password combination"
   mess:
     not_found_room: "Not found room type!"
     invalid_email_password_combination: "Invalid email password combination"
@@ -140,3 +141,12 @@ en:
   accept: "Accept"
   reject: "Reject"
   to: "To"
+  utility_in_room: "Utility in room"
+  sellect_utility: "Sellect utility"
+  quantity: "Quantity"
+  room_cost: "Room cost:"
+  total_cost: "Total cost: %{total_cost}"
+  add_utilities: "Add utilities used"
+  require_payment: "Require payment"
+  payment_service: "Payment Service"
+  paymented: "Paymented"
