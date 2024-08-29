@@ -13,7 +13,7 @@
   </div>
   <div>
     <button id="open-modal-a" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center">
-      <i class="fas fa-edit"></i>
+      <%= fa_icon "edit" %>
     </button>
     <div id="modal-a" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
       <div class="bg-white p-6 rounded-md w-1/3 relative">
@@ -24,8 +24,8 @@
         <%= render "admin/rooms/form" %>
       </div>
     </div>
-    <%= link_to admin_room_path(@room), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
-      <i class="fas fa-trash-alt"></i>
+    <%= link_to admin_room_path(@room), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center mt-4", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
+      <%= fa_icon "trash" %>
     <% end %>
   </div>
 </div>

@@ -24,9 +24,9 @@ class Admin::RequestsController < Admin::BaseController
       @request = Request.find params[:id]
       room_id = params[:request][:room_id]
 
-      @request.update!(room_id:, reject_reason: nil)
-      @request.histories.create! status: :accepted
+      update_request_and_create_history(@request, room_id, :accepted)
       create_room_costs @request
+      UserMailer.request_accept(@request.user, @request).deliver_now
 
       flash[:success] = t "request.accept_success"
       redirect_to admin_requests_path
@@ -41,10 +41,9 @@ class Admin::RequestsController < Admin::BaseController
       @request = Request.find params[:id]
       reject_reason = params[:request][:reject_reason]
 
-      @request.update_attribute(:reject_reason, reject_reason)
-      @request.update_attribute(:room_id, nil)
-      @request.histories.create! status: :rejected
+      update_request_and_create_history(@request, nil, :rejected, reject_reason)
       delete_related_room_costs @request
+      UserMailer.request_reject(@request.user, @request).deliver_now
 
       flash[:success] = t "request.reject_success"
       redirect_to admin_requests_path
@@ -101,5 +100,11 @@ class Admin::RequestsController < Admin::BaseController
 
   def find_request_by_id
     @request = Request.find_by id: params[:id]
+  end
+
+  def update_request_and_create_history request, room_id, status,
+    reject_reason = nil
+    request.update!(room_id:, reject_reason:)
+    request.histories.create!(status:)
   end
 end

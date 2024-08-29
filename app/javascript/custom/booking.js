@@ -16,6 +16,7 @@ document.addEventListener("turbo:load", function () {
   });
 
   const form = document.getElementById("lost-utility-form");
+
   form?.addEventListener("submit", function (e) {
     e.preventDefault();
     const formData = new FormData(form);
@@ -36,8 +37,11 @@ document.addEventListener("turbo:load", function () {
           newItem.textContent = `${data.utility_name} * ${
             data.lost_utility.quantity
           } : ${data.lost_utility.quantity * data.utility_cost}`;
-          newItem.classList.add("text-black");
-          document.querySelector("#modalb ul").appendChild(newItem);
+          newItem.classList.add("text-gray-700");
+
+          const ulList = document.querySelectorAll("ul.mb-4.list-disc.pl-5");
+          const secondUl = ulList[1];
+          secondUl.appendChild(newItem);
 
           form.reset();
         } else {
