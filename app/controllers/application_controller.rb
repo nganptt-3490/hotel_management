@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include RoomTypesHelper
   include RequestsHelper
+  include PriceFluctuationsHelper
   include Pagy::Backend
   include SessionsHelper
   before_action :set_locale

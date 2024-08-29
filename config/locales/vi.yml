@@ -107,6 +107,16 @@ vi:
       time: "Thời gian"
       status: "Trạng thái"
       action: "Hành động"
+  price_fluctuation:
+    list_fluctuation: "Danh sách giá ngày lễ"
+    search:
+      enter_name: "Nhập tên ngày điều chỉnh giá"
+      not_found: "Không tồn tại"
+    table:
+      name: "Tên ngày lễ"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
+      rate: "Tỉ lệ giá"
   email_address: "Địa chỉ email"
   password: "Mật khẩu"
   are_you_sure?: "Bạn chắc chưa?"

@@ -12,7 +12,7 @@
         <%= link_to t("header.room"), admin_room_types_path, class: "font-medium #{current_page?(admin_room_types_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(admin_room_types_path) } %>
         <%= link_to t("header.roomonly"), admin_rooms_path, class: "font-medium #{current_page?(admin_rooms_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(admin_rooms_path) } %>
         <%= link_to t("header.utility"), "#", class: "font-medium #{current_page?("#") ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?("#") } %>
-        <%= link_to t("header.fluctuation"), "#", class: "font-medium #{current_page?("#") ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?("#") } %>
+        <%= link_to t("header.fluctuation"), admin_price_fluctuations_path, class: "font-medium #{current_page?("#") ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?("#") } %>
         <%= link_to t("header.request"), admin_requests_path, class: "font-medium #{current_page?(admin_requests_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(admin_requests_path) } %>
         <%= link_to t("header.review"), admin_reviews_path, class: "font-medium #{current_page?(admin_reviews_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(admin_reviews_path) } %>
         <% if logged_in? %>
