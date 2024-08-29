@@ -21,7 +21,7 @@
     <%= review.content %>
   </td>
   <td class="py-4 px-4 text-color-<%= review.status %> font-semibold text-sm text-center">
-    <%= review.status %>
+    <%= t "review.statuses.#{review.status}" %>
   </td>
   <td class="py-4 px-4 font-medium text-sm text-center">
     <div class="flex justify-center items-center space-x-4">
