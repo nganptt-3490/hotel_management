@@ -82,4 +82,8 @@ document.addEventListener("turbo:load", () => {
       }
     });
   }
+
+  $(".room-select").select2({
+    theme: "bootstrap4",
+  });
 });

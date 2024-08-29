@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_29_035218) do
   create_table "room_costs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "use_date"
     t.bigint "request_id", null: false
-    t.bigint "price_fluctuation_id"
+    t.bigint "price_fluctuation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["price_fluctuation_id"], name: "index_room_costs_on_price_fluctuation_id"

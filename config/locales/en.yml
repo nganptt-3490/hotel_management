@@ -107,6 +107,10 @@ en:
       time: "Time"
       status: "Status"
       action: "Action"
+    statuses:
+      pending: "Pending"
+      accepted: "Accepted"
+      rejected: "Rejected"
   price_fluctuation:
     list_fluctuation: "List holiday price change"
     search:
@@ -160,3 +164,5 @@ en:
   require_payment: "Require payment"
   payment_service: "Payment Service"
   paymented: "Paymented"
+  select_room_number: "Select Room Number"
+  select_status: "Select status"
