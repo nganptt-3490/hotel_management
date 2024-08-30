@@ -116,6 +116,15 @@ en:
     search:
       enter_name: "Enter holiday name"
       not_found: "Not found"
+    new: "New holiday"
+    edit: "Edit price fluctuation"
+    create_fluctuation: "Create price fluctuation"
+    fluctuation_form: "Price fluctuation form"
+    show:
+      name: "Name: %{name}"
+      start_date: "Start date: %{start_date}"
+      end_date: "End date: %{end_date}"
+      rate: "Rate: %{rate}"
     table:
       name: "Holiday name"
       start_date: "Start date"

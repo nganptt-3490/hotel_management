@@ -116,6 +116,15 @@ vi:
     search:
       enter_name: "Nhập tên ngày điều chỉnh giá"
       not_found: "Không tồn tại"
+    new: "Ngày lễ mới"
+    edit: "Sửa thông tin thay đổi giá"
+    create_fluctuation: "Tạo thay đổi giá"
+    fluctuation_form: "Biểu mẫu thay đổi giá"
+    show:
+      name: "Tên ngày lễ: %{name}"
+      start_date: "Ngày bắt đầu: %{start_date}"
+      end_date: "Ngày kết thúc: %{end_date}"
+      rate: "Tỉ lệ thay đổi giá: %{rate}"
     table:
       name: "Tên ngày lễ"
       start_date: "Ngày bắt đầu"
@@ -129,7 +138,7 @@ vi:
   no_requests_found: "Không tìm thấy yêu cầu"
   record_not_found: "Không có dữ liệu"
   search:
-    submit: "Tìm phòng"
+    submit: "Tìm"
     date_valid: "Ngày bắt đầu và kết thúc phải có định dạng hợp lệ."
     start_date: "Ngày bắt đầu"
     end_date: "Ngày kết thúc"

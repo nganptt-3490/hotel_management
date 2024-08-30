@@ -45,4 +45,6 @@ class Request < ApplicationRecord
   }
   scope :by_room_type, ->(room_type_id){where(room_type_id:)}
   scope :sorted_by_date, ->{order(start_date: :desc, created_at: :desc)}
+
+  scope :order_by_created_at_desc, ->{order(created_at: :desc)}
 end

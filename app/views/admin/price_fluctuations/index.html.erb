@@ -1,3 +1,4 @@
+<% provide :button_text, t("price_fluctuation.create_fluctuation") %>
 <div class="container mx-auto p-4">
   <div class="flex flex-col">
     <div class="ml-auto mb-4 w-1/4">
@@ -5,9 +6,28 @@
         <div class="flex items-center w-full">
           <%= f.text_field :name, value: params[:name], id: "hero-input-2", class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black", placeholder: t("price_fluctuation.search.enter_name") %>
 
-          <%= f.submit t("search.submit"), class: "ml-2 py-3 px-5 inline-flex justify-center items-center text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>
+          <%= f.submit t("search.submit"), class: "w-20 ml-2 py-3 px-10 inline-flex justify-center items-center text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>
         </div>
       <% end %>
+    </div>
+
+    <div class="flex justify-between items-center mb-6">
+      <div>
+        <button id="open-modal" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center">
+          <%= fa_icon "plus", class: "mr-2" %>
+          <%= t "price_fluctuation.new" %>
+        </button>
+      </div>
+    </div>
+
+    <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white p-6 rounded-md w-1/3 relative">
+        <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+          <%= fa_icon "times", class: "text-gray-500" %>
+        </button>
+        <h2 class="text-xl font-semibold mb-4 text-black"><%= t "price_fluctuation.fluctuation_form" %></h2>
+        <%= render "admin/price_fluctuations/form" %>
+      </div>
     </div>
     
     <div class="w-full">

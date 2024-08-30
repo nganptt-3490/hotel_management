@@ -1,0 +1,30 @@
+<% provide :button_text, t("price_fluctuation.edit") %>
+<div class="flex items-center space-x-4">
+  <div class="w-1/3">
+    <%= image_tag "logo.jpg", alt: "Room Image", class: "w-auto rounded-md" %>
+  </div>
+  <div class="w-2/3 bg-gray-800 text-white p-4 rounded-md ml-6 mt-6">
+    <p class="text-lg font-semibold mb-2 flex items-center">
+      <%= t "price_fluctuation.show.name", name: @fluctuation.name %>
+    <p class="text-sm mb-2"><%= t "price_fluctuation.show.start_date", start_date: @fluctuation.start_date %></p>
+    <p class="text-sm mb-2"><%= t "price_fluctuation.show.end_date", end_date: @fluctuation.end_date %></p>
+    <p class="text-sm mb-2"><%= t "price_fluctuation.show.rate", rate: @fluctuation.rate %></p>
+  </div>
+  <div>
+    <button id="open-modal-a" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center">
+      <%= fa_icon "pencil" %>
+    </button>
+    <div id="modal-a" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white p-6 rounded-md w-1/3 relative">
+        <button id="close-modal-a" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+          <%= fa_icon "times" %>
+        </button>
+        <h2 class="text-xl font-semibold mb-4 text-black"><%= t "price_fluctuation.fluctuation_form" %></h2>
+        <%= render "admin/price_fluctuations/form" %>
+      </div>
+    </div>
+    <%= link_to admin_price_fluctuation_path(@fluctuation), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
+      <%= fa_icon "trash" %>
+    <% end %>
+  </div>
+</div>
