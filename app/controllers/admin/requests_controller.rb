@@ -100,6 +100,10 @@ class Admin::RequestsController < Admin::BaseController
 
   def find_request_by_id
     @request = Request.find_by id: params[:id]
+    return if @request
+
+    flash[:warning] = t "record_not_found"
+    redirect_to admin_requests_path
   end
 
   def update_request_and_create_history request, room_id, status,
