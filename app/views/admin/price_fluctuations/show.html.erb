@@ -23,7 +23,7 @@
         <%= render "admin/price_fluctuations/form" %>
       </div>
     </div>
-    <%= link_to admin_price_fluctuation_path(@fluctuation), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
+    <%= link_to admin_price_fluctuation_path(@fluctuation), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center mt-4", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
       <%= fa_icon "trash" %>
     <% end %>
   </div>

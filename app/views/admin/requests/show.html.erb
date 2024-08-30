@@ -14,15 +14,16 @@
         <p class="text-sm mb-2"><%= t "request.show.available_room_count", available_room_count: available_room(@request.room_type_id, @request.start_date, @request.end_date).count %></p>
         <p class="text-sm mb-2"><%= t "request.show.room_number", room_number: get_room_number(@request) %></p>
         <p class="text-sm mb-2"><%= t "request.show.status", status: request_status(@request) %></p>
-        <div class="flex space-x-2"id="accept_partial_<%= @request.id %>" >
-          <%= link_to "#", method: :patch, id: "accept-button", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center" do %>
-            <%= t "request.accept" %>
-          <% end %>
-          
-          <%= link_to "#", method: :patch, id:"reject-button", class: "bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
-            <%= t "request.reject" %>
-          <% end %>
-        </div>
+        <% if !is_started?(@request) && !canceled?(@request) %>
+          <div class="flex space-x-2"id="accept_partial_<%= @request.id %>" >
+            <%= link_to "#", method: :patch, id: "accept-button", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center" do %>
+              <%= t "request.accept" %>
+            <% end %>
+            <%= link_to "#", method: :patch, id:"reject-button", class: "bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 flex items-center", data: {"turbo-method": :delete, turbo_confirm: t("are_you_sure?")} do %>
+              <%= t "request.reject" %>
+            <% end %>
+          </div>
+        <% end %>
         <div id="accept-form" class="hidden">
           <%= render "admin/requests/accept" %>
         </div>

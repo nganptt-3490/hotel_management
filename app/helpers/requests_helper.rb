@@ -29,4 +29,16 @@ module RequestsHelper
       price
     end
   end
+
+  def pass_start_date? request
+    request.start_date < Date.current
+  end
+
+  def canceled? request
+    request.histories.last.canceled?
+  end
+
+  def is_started? request
+    Time.zone.today > request.start_date
+  end
 end

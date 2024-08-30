@@ -8,7 +8,7 @@ module ApplicationHelper
 
   def flash_bg_color message_type
     case message_type.to_sym
-    when :notice then "bg-green-500"
+    when :success then "bg-green-500"
     when :alert then "bg-red-500"
     when :info then "bg-blue-500"
     when :warning then "bg-yellow-500"

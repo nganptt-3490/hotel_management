@@ -54,11 +54,7 @@ class Admin::RequestsController < Admin::BaseController
   end
 
   def send_total_cost
-    if @request.update(payment: params[:total_cost])
-      flash[:success] = t "updated"
-    else
-      flash[:danger] = t "failed"
-    end
+    update_total_cost(@request, params[:total_cost])
     redirect_to admin_request_path
   end
 
@@ -100,11 +96,23 @@ class Admin::RequestsController < Admin::BaseController
 
   def find_request_by_id
     @request = Request.find_by id: params[:id]
+    return if @request
+
+    flash[:warning] = t "record_not_found"
+    redirect_to admin_requests_path
   end
 
   def update_request_and_create_history request, room_id, status,
     reject_reason = nil
     request.update!(room_id:, reject_reason:)
     request.histories.create!(status:)
+  end
+
+  def update_total_cost request, total_cost
+    if request.update(payment: total_cost)
+      flash[:success] = t "updated"
+    else
+      flash[:danger] = t "failed"
+    end
   end
 end
