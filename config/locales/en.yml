@@ -178,6 +178,7 @@ en:
   utilities_cost: "Utilities cost:"
   request_accepted: "Request accepted"
   request_rejected: "Request rejected"
-  hi: "Hi"
+  hi: "Hi "
   mess_accepted: "Your request is accepted"
   mess_rejected: "Your request is rejected"
+  confirm_payment: "Link to request"

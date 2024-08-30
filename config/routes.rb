@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :users, only: %i(cancle_request)
       resources :requests, only: %i(update create)  do
         member do
-          patch :payment
+          get :payment
         end
       end
       resources :reviews, only: %i(create)
@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       resources :requests, only: %i(index show) do
         member do
           patch "send_total_cost"
+          patch "update_total_cost"
+          patch "payment"
         end
       end
       resources :price_fluctuations, only: %i(index show create update destroy)

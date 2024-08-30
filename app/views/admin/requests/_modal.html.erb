@@ -20,7 +20,7 @@
     <% end %>
   </ul>
   <p class="text-gray-900 font-semibold text-lg mb-4"><%= t("total_cost", total_cost: @total_cost) %></p>
-  <%= link_to t("add_utilities"), "#", id: "booking-button-2", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4" %>
+  <%= link_to t("add_utilities"), update_total_cost_admin_request_path(@total_cost), id: "booking-button-2", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4" %>
   <div id="booking-form-2" class="hidden mt-4 p-4">
     <%= render "admin/lost_utilities/form", utilities: utilities %>
   </div>

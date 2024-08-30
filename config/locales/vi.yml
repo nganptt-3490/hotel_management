@@ -178,6 +178,7 @@ vi:
   utilities_cost: "Chi phí dịch vụ:"
   request_accepted: "Yêu cầu được đồng ý"
   request_rejected: "Yêu cầu bị từ chối"
-  hi: "Xin chào"
+  hi: "Xin chào "
   mess_accepted: "Yêu cầu được đồng ý"
   mess_rejected: "Yêu cầu bị từ chối"
+  confirm_payment: "Đường dẫn tới yêu cầu"

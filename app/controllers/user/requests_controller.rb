@@ -1,5 +1,5 @@
 class User::RequestsController < User::BaseController
-  before_action :set_request, only: %i(update)
+  before_action :find_request, only: %i(update payment)
   before_action :set_room_type, only: :create
 
   def create
@@ -16,7 +16,7 @@ class User::RequestsController < User::BaseController
 
   def update
     if @request.histories.create(status: :canceled)
-      flash[:notice] = t "mess.request_cancelled"
+      flash[:success] = t "mess.request_cancelled"
     else
       flash[:alert] = t "mess.request_cancel_fail"
     end
@@ -24,9 +24,8 @@ class User::RequestsController < User::BaseController
   end
 
   def payment
-    @request = Request.find params[:id]
-
-    if @request.update(paymented_at: Time.current)
+    UserMailer.confirm_payment(@request.user, @request).deliver_now
+    if @request.update(paymented_at: Date.current)
       flash[:success] = t "updated"
     else
       flash[:danger] = t "failed"
@@ -48,7 +47,7 @@ class User::RequestsController < User::BaseController
     flash[:alert] = t "room_type.not_found"
   end
 
-  def set_request
+  def find_request
     @request = Request.find_by id: params[:id]
     return if @request
 
