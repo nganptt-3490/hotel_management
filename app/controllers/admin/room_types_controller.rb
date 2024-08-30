@@ -1,4 +1,5 @@
 class Admin::RoomTypesController < Admin::BaseController
+  before_action :logged_in_user, only: %i(show)
   def index
     @pagy, @room_types = pagy(RoomType.ordered_by_name,
                               limit: Settings.pagy.items)

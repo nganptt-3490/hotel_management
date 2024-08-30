@@ -24,7 +24,7 @@ Rails.application.configure do
   end
 
   config.active_storage.service = :local
-
+  
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
@@ -42,4 +42,17 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.assets.debug = true
+
+  host = "localhost:3000"
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.smtp_settings = {
+    address: "sandbox.smtp.mailtrap.io",
+    port: 587,
+    user_name: ENV["USER_EMAIL"],
+    password: ENV["USER_PASSWORD"],
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 end
