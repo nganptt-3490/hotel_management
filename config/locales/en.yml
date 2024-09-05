@@ -4,6 +4,9 @@ en:
     title: "Home"
     mess: "Welcome"
     logo: "Hotel"
+    revenue_chart: "Revenue chart"
+    number_of_request: "Number of request"
+    month: "Month"
   header:
     home: "Home"
     room: "RoomType"

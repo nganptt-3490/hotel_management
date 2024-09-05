@@ -4,6 +4,9 @@ vi:
     title: "Trang chủ"
     mess: "Chào mừng"
     logo: "Nhà"
+    revenue_chart: "Biểu đồ doanh thu"
+    number_of_request: "Số yêu cầu đặt phòng"
+    month: "Tháng"
   header:
     home: "Trang chủ"
     room: "Loại phòng"

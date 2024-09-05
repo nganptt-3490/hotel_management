@@ -1,3 +1,5 @@
 class Admin::StaticPagesController < Admin::BaseController
-  def home; end
+  def home
+    @requests = Request.all
+  end
 end
