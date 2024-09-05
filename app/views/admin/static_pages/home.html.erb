@@ -1,7 +1,14 @@
 <% provide :title, t("home.title") %>
-<div class="relative home-background">
-  <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
-    <h1 class="text-white text-4xl mb-4"><%= t "home.title" %></h1>
-    <p class="text-white text-lg"><%= t "home.mess" %></p>
+<div class="container mx-auto p-6">
+  <div class="flex">
+    <div class="bg-white shadow-md p-4 rounded-lg w-full">
+      <h2 class="text-xl text-black font-semibold mb-4"><%= t "home.revenue_chart" %></h2>
+      <%= line_chart Request.group_by_month(:end_date).sum(:payment), xtitle: t("home.month"), ytitle: t("rooms.currencies") %>
+    </div>
+
+    <div class="bg-white shadow-md p-4 rounded-lg w-full">
+      <h2 class="text-xl text-black font-semibold mb-4"><%= t "home.number_of_request" %></h2>
+        <%= column_chart Request.group_by_month(:end_date).count, xtitle: t("home.month"), ytitle: t("home.number_of_request") %>
+    </div>
   </div>
 </div>

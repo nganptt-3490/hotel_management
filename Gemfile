@@ -4,10 +4,12 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "3.2.2"
 gem "bcrypt"
 gem "bootsnap", require: false
+gem "chartkick"
 gem "config"
 gem "faker"
 gem "font-awesome-rails"
 gem "font-awesome-sass", "~> 6.0.0"
+gem "groupdate"
 gem "importmap-rails"
 gem "jbuilder"
 gem "mysql2", "~> 0.5"
