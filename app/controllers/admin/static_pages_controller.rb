@@ -1,5 +1,6 @@
 class Admin::StaticPagesController < Admin::BaseController
   def home
-    @requests = Request.all
+    @search = Request.ransack(params[:q])
+    @requests = @search.result
   end
 end

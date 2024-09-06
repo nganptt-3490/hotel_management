@@ -15,6 +15,10 @@ class Request < ApplicationRecord
   validates :end_date, presence: true
   validate :validate_dates
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(start_date end_date)
+  end
+
   def validate_dates
     return if room_available?
 
