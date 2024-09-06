@@ -25,7 +25,7 @@ class User::RequestsController < User::BaseController
 
   def payment
     UserMailer.confirm_payment(@request.user, @request).deliver_now
-    if @request.update(paymented_at: Date.current)
+    if @request.update_attribute(:paymented_at, Date.current)
       flash[:success] = t "updated"
     else
       flash[:danger] = t "failed"

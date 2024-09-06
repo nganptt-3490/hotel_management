@@ -1,0 +1,4 @@
+<p><%= t "home.mess" %> <%= @email %>!</p>
+
+<p><%= t "can_confirm" %></p>
+<p><%= link_to t("confirm_acc"), confirmation_url(@resource, confirmation_token: @resource.confirmation_token) %></p>

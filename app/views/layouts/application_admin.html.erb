@@ -24,6 +24,10 @@
         <%= yield %>
       </main>
       <%= render "admin/layouts/footer" %>
+      <div class="container-fluid">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
     </div>
   </body>
 </html>

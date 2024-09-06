@@ -109,7 +109,7 @@ class Admin::RequestsController < Admin::BaseController
   end
 
   def update_total_cost request, total_cost
-    if request.update(payment: total_cost)
+    if request.update_attribute(:payment, total_cost)
       flash[:success] = t "updated"
     else
       flash[:danger] = t "failed"

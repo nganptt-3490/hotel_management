@@ -1,0 +1,7 @@
+<p><%= t "hi" %> <%= @resource.email %>!</p>
+
+<p><%= t "account_locked" %></p>
+
+<p><%= t "click_unlock" %></p>
+
+<p><%= link_to t("unlock_account"), unlock_url(@resource, unlock_token: @token) %></p>

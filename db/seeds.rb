@@ -113,7 +113,8 @@ end
 User.create!(username:"Example User",
              email: "example@railstutorial.org",
              password: "abcxyz",
-             role: 1
+             role: 1,
+             confirmed_at: Time.now
             )
 
 20.times do |n|
@@ -122,7 +123,8 @@ User.create!(username:"Example User",
   User.create!(username: username,
                email: email,
                password: "abcxyz",
-               role: 0)
+               role: 0,
+               confirmed_at: Time.now)
 end
 
 PriceFluctuation.create!(name: "Quốc khánh",

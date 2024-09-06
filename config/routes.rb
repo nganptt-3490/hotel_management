@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   scope "(:locale)", locale: /en|vi/ do
     scope module: "user" do
       root "static_pages#home"
@@ -37,9 +38,11 @@ Rails.application.routes.draw do
       end
       resources :price_fluctuations, only: %i(index show create update destroy)
     end
-
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+    
+    devise_for :users, skip: :omniauth_callbacks, controllers: {registrations: "registrations", sessions: "sessions", confirmations: "confirmations"} do
+      get "signin" => "devise/sessions#new"
+      post "signin" => "devise/sessions#create"
+      delete "signout" => "devise/sessions#destroy"
+    end
   end
 end
