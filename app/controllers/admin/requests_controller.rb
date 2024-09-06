@@ -1,7 +1,10 @@
 class Admin::RequestsController < Admin::BaseController
   before_action :find_request_by_id, only: %i(show send_total_cost)
   def index
-    @pagy, @requests = pagy(Request.includes(:user).sorted_by_date,
+    @q = Request.ransack(params[:q])
+    @pagy, @requests = pagy(@q.result.includes(:user, :room_type, :room)
+                            .references(:user, :room_type, :room)
+                            .sorted_by_date,
                             limit: Settings.pagy.items)
     @start_index = (@pagy.page - 1) * Settings.pagy.items
   end

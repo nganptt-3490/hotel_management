@@ -1,24 +1,41 @@
 <h1 class="text-3xl font-bold mb-6"><%= t "request.list_request" %></h1>
-<div class="flex flex-col">
-  <div class="container mx-auto p-4">
-    <table class="min-w-full border-collapse">
-      <thead>
-        <tr class="bg-gray-600">
-          <th class="py-2 px-4 text-left text-sm font-medium text-center"><%= t "request.table.number" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.start_date" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.end_date" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.request_user" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_type" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.available_room_count" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_number" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.status" %></th>
-          <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.action" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: "request", collection: @requests, as: :request, locals: { start_index: @start_index } %>  
-      </tbody>
-    </table>
-    <%== pagy_nav(@pagy) %>
+<div class="container mx-auto p-4">
+  <div class="flex flex-col">
+    <div class="ml-auto mb-4 w-1/4">
+      <%= search_form_for @q, url: admin_requests_path, method: :get, html: { class: "flex items-center gap-2 sm:gap-3" } do |f| %>
+        <div class="flex items-center w-full">
+          <%= f.text_field :combined_search_cont, value: params[:combined_search_cont], class: "py-3 px-4 block w-full border-gray-500 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 text-black", placeholder: t("request.enter_roomtype") %>
+
+          <%= f.submit t("search.submit"), class: "w-20 ml-2 py-3 px-10 inline-flex justify-center items-center text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-blue-700" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="container mx-auto p-4">
+      <table class="min-w-full border-collapse">
+        <thead>
+          <tr class="bg-gray-600">
+            <th class="py-2 px-4 text-sm font-medium text-center"><%= t "request.table.number" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.start_date" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.end_date" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.request_user" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_type" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.available_room_count" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.room_number" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.status" %></th>
+            <th class="py-2 px-4 text-left text-sm font-medium"><%= t "request.table.action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if request_exist? @requests %>
+            <%= render partial: "request", collection: @requests, as: :request, locals: { start_index: @start_index } %> 
+          <% else %>
+            <tr>
+              <td colspan="6" class="text-center py-4"><%= t("request.not_found") %></td>
+            </tr>
+          <% end %>  
+        </tbody>
+      </table>
+      <%== pagy_nav(@pagy) %>
+    </div>
   </div>
 </div>

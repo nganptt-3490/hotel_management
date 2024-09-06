@@ -62,6 +62,7 @@ en:
     not_available: "The selected room type is not available for the chosen dates."
     confirm: "Confirm"
     payment: "Payment"
+    enter_roomtype: "Enter username, room type, room number..."
     not_found: "Request not found"
     table:
       number: "No."
