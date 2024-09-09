@@ -162,6 +162,9 @@ en:
   errors:
     the_form_contains: "The form contains"
     error: "errors"
+  mail:
+    monthly_noti: "Revenue of %{month}"
+    revenue_statistic: "Revenue statistics of %{month} of AN hotel"
   create_review: "Create review"
   form_create_review: "Form create review"
   list_review: "List Reviews"

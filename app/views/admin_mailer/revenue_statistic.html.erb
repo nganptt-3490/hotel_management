@@ -1,0 +1,7 @@
+<h1><%= t "mail.revenue_statistic", month: @this_month %></h1>
+
+<p><%= t "hi" %> admin,</p>
+<p>
+  <%= t "mail.revenue_statistic", month: @this_month %>: 
+  <%= Request.group_by_month(:end_date, format: "%B %Y").sum(:payment)[@this_month] %>
+</p>
