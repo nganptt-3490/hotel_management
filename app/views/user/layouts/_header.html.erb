@@ -11,11 +11,11 @@
         <%= link_to t("header.home"), root_path, class: "font-medium #{current_page?(root_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(root_path) } %>
         <%= link_to t("header.room"), room_types_path,  class: "font-medium #{current_page?(room_types_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(room_types_path) } %>
         <%= link_to t("header.service"), "#", class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <%= link_to t("header.profile"), profile_path, class: "font-medium #{current_page?(profile_path) ? "text-white" : "text-white/70 hover:text-white"} focus:outline-none", aria: { current: current_page?(profile_path) } %>
-          <%= link_to t("header.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("are_you_sure?") }, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+          <%= link_to t("header.logout"), destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: t("are_you_sure?") }, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <% else %>
-          <%= link_to t("header.login"), login_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
+          <%= link_to t("header.login"), user_session_path, class: "font-medium text-white/70 hover:text-white focus:outline-none focus:text-white" %>
         <% end %>
         <%= link_to({ locale: "en" }) do %>
           <%= image_tag "english.png", alt: "English", class: "h-6 w-auto" %>
