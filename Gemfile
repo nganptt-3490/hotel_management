@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "3.2.2"
 gem "bcrypt"
 gem "bootsnap", require: false
+gem "cancancan"
 gem "chartkick"
 gem "config"
 gem "devise"

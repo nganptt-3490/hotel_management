@@ -1,4 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_load_and_authorize_resource
   layout "application"
   skip_before_action :verify_authenticity_token, only: [:google_oauth2]
 

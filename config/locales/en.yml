@@ -211,3 +211,6 @@ en:
   log_in: "Log in"
   resend_unlock_instructions: "Resend unlock instructions"
   sign_in_with: "Sign in with"
+  no_access: "No access"
+  log_in?: "log in?"
+  must_user: "Must be user to booking."
