@@ -15,6 +15,21 @@ class Request < ApplicationRecord
   validates :end_date, presence: true
   validate :validate_dates
 
+  ransacker :combined_search do |_parent|
+    Arel.sql(
+      "CONCAT(users.username, ' ', CAST(rooms.room_number AS CHAR), ' ',
+              room_types.name)"
+    )
+  end
+
+  def self.ransackable_associations auth_object = nil
+    super + %w(room room_type user)
+  end
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(start_date end_date combined_search)
+  end
+
   def validate_dates
     return if room_available?
 

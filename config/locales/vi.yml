@@ -63,6 +63,7 @@ vi:
     confirm: "Xác nhận"
     payment: "Thanh toán"
     not_found: "Không tìm thấy yêu cầu đặt phòng"
+    enter_roomtype: "Nhập tên người dùng, loại phòng, số phòng..."
     table:
       number: "STT"
       start_date: "Ngày bắt đầu"

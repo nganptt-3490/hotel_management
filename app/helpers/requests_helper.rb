@@ -41,4 +41,8 @@ module RequestsHelper
   def is_started? request
     Time.zone.today > request.start_date
   end
+
+  def request_exist? requests
+    requests.present?
+  end
 end
