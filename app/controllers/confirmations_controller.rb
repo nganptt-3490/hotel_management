@@ -1,4 +1,5 @@
 class ConfirmationsController < Devise::ConfirmationsController
+  skip_load_and_authorize_resource
   layout "application"
   def show
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])

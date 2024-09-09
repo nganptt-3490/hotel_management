@@ -76,6 +76,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.6.1)
     capybara (3.39.2)
       addressable
       matrix
@@ -340,6 +341,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootsnap
+  cancancan
   capybara
   chartkick
   config

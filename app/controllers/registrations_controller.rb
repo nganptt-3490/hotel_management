@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  skip_load_and_authorize_resource
   layout "application"
   def create
     build_resource sign_up_params

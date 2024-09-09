@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  load_and_authorize_resource
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_url, alert: t("no_access")
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -20,7 +24,7 @@ class ApplicationController < ActionController::Base
     return if user_signed_in?
 
     flash[:danger] = t "please_login"
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 
   protected

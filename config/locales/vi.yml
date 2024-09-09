@@ -211,3 +211,6 @@ vi:
   log_in: "Đăng nhập"
   resend_unlock_instructions: "Gửi lại mail mở khóa"
   sign_in_with: "Đăng nhập với"
+  no_access: "Bạn không có quyền truy cập trang này."
+  log_in?: "đăng nhập?"
+  must_user: "Phải là người dùng để đặt phòng."
