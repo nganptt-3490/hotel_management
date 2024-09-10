@@ -8,6 +8,7 @@ gem "cancancan"
 gem "chartkick"
 gem "config"
 gem "devise"
+gem "dotenv-rails"
 gem "faker"
 gem "font-awesome-rails"
 gem "font-awesome-sass", "~> 6.0.0"
@@ -31,6 +32,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails", "~> 2.6"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
+gem "whenever", require: false
 
 group :development, :test do
   gem "debug", platforms: %i(mri mingw x64_mingw)

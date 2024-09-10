@@ -162,6 +162,9 @@ vi:
   errors:
     the_form_contains: "Biểu mẫu bao gồm:"
     error: "lỗi"
+  mail:
+    monthly_noti: "Doanh thu %{month}"
+    revenue_statistic: "Thống kê doanh thu tháng %{month} của AN hotel"
   create_review: "Tạo nhận xét"
   form_create_review: "Form tạo nhận xét"
   list_review: "Danh sách nhận xét"
