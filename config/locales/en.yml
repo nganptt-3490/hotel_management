@@ -111,6 +111,11 @@ en:
       time: "Time"
       status: "Status"
       action: "Action"
+      ratefrom: "Rate from"
+      rateto: "Rate to"
+      createfrom: "Create from"
+      createto: "Create to"
+      username: "Username"
     statuses:
       pending: "Pending"
       accepted: "Accepted"
@@ -217,3 +222,5 @@ en:
   no_access: "No access"
   log_in?: "log in?"
   must_user: "Must be user to booking."
+  high_rating: "High rating"
+  recent: "Recent"

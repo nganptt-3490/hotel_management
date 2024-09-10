@@ -111,6 +111,11 @@ vi:
       time: "Thời gian"
       status: "Trạng thái"
       action: "Hành động"
+      ratefrom: "Điểm từ"
+      rateto: "Điểm đến"
+      createfrom: "Tạo từ"
+      createto: "Tạo đến"
+      username: "Tên người dùng"
     statuses:
       pending: "Đang chờ"
       accepted: "Đã đồng ý"
@@ -217,3 +222,5 @@ vi:
   no_access: "Bạn không có quyền truy cập trang này."
   log_in?: "đăng nhập?"
   must_user: "Phải là người dùng để đặt phòng."
+  high_rating: "Điểm cao"
+  recent: "Gần đây"

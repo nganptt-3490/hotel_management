@@ -6,3 +6,6 @@ maximum:
   email: 255
 regex:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+scope:
+  ratehigh: 4
+  recent: 1

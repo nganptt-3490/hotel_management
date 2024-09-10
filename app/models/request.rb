@@ -23,7 +23,7 @@ class Request < ApplicationRecord
   end
 
   def self.ransackable_associations auth_object = nil
-    super + %w(room room_type user)
+    super + %w(room room_type user reviews)
   end
 
   def self.ransackable_attributes _auth_object = nil

@@ -24,4 +24,8 @@ class RoomType < ApplicationRecord
       .having("COUNT(utilities_in_room_types.utility_id) = ?",
               selected_utility_ids.size)
   }
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(name)
+  end
 end
