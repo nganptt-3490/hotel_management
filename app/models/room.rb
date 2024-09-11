@@ -14,4 +14,8 @@ class Room < ApplicationRecord
   scope :by_type_and_ids, lambda {|room_type_id, available_room_ids|
     where(id: available_room_ids, room_type_id:)
   }
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(room_number)
+  end
 end
