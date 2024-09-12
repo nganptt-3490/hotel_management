@@ -416,7 +416,7 @@ DEPENDENCIES
   sassc-rails
   select2-rails
   selenium-webdriver
-  shoulda-matchers
+  shoulda-matchers (~> 5.0)
   simplecov
   sprockets-rails
   stimulus-rails
