@@ -10,6 +10,11 @@ RSpec.describe Room, type: :model do
     it { should define_enum_for(:status).with_values([:active, :inactive]) }
   end
 
+  describe "validations" do
+    it { should validate_presence_of(:room_number) }
+    it { should validate_presence_of(:status) }
+  end
+
   describe "scopes" do
     let!(:room_type1) { create(:room_type, price_weekday: 50, price_weekend: 60) }
     let!(:room_type2) { create(:room_type, price_weekday: 100, price_weekend: 120) }

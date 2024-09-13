@@ -7,13 +7,7 @@ class Admin::RoomsController < Admin::BaseController
                          limit: Settings.pagy.items)
   end
 
-  def show
-    @room = Room.find_by id: params[:id]
-    return if @room
-
-    flash[:warning] = t "mess.not_found_room"
-    redirect_to root_path
-  end
+  def show; end
 
   def create
     @room = Room.new room_params
@@ -54,6 +48,7 @@ class Admin::RoomsController < Admin::BaseController
 
     return if @room
 
-    flash[:warning] = t "failed"
+    flash[:warning] = I18n.t("record_not_found")
+    redirect_to admin_rooms_path
   end
 end
