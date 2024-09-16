@@ -1,4 +1,6 @@
 class Api::V1::ApplicationController < ActionController::API
+  include Pagy::Backend
+
   private
 
   def encode_token payload
