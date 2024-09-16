@@ -44,5 +44,11 @@ Rails.application.routes.draw do
       post "signin" => "devise/sessions#create"
       delete "signout" => "devise/sessions#destroy"
     end
+
+    namespace :api do
+      namespace :v1 do
+        post "/login", to: "auth#create"
+      end
+    end
   end
 end
