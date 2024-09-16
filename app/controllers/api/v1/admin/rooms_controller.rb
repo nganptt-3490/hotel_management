@@ -1,4 +1,5 @@
-class Api::V1::RoomsController < Api::V1::ApplicationController
+class Api::V1::Admin::RoomsController < Api::V1::ApplicationController
+  before_action :authenticate_user
   before_action :set_room, only: %i(show update destroy)
   def index
     @pagy, @rooms = pagy(Room, limit: Settings.pagy.items)

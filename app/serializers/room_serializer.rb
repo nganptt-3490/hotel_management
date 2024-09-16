@@ -1,5 +1,5 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :status, :room_type
+  attributes :id, :room_number, :description, :status, :room_type
 
   def room_type
     object.room_type.name
